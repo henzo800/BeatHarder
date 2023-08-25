@@ -7,6 +7,8 @@ public class Mouse : MonoBehaviour
     public float sensX;
     public float sensY;
     public Transform orientation;
+
+    public GameObject player;
     float xRotation;
     float yRotation;
 
@@ -28,7 +30,7 @@ public class Mouse : MonoBehaviour
 
         // Rotate cam and orientation
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
-        orientation.rotation = Quaternion.Euler(0, yRotation, 0);
+        player.transform.rotation = Quaternion.Euler(0, yRotation, 0);
 
         transform.position = orientation.position;
     }
