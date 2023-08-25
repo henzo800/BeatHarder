@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timeSinceStart += Time.deltaTime;
+        timeSinceStart = audioSource.time;
         foreach(Song.HitObject hitObject in currentSong.hitObjects.ToArray()){
             if(hitObject.time/1000 <= timeSinceStart){
                 Instantiate(attackPrefab, new Vector3((((float)hitObject.x-256)/512) * 10, 0, (((float)hitObject.y-192)/384) * 10), Quaternion.identity);
