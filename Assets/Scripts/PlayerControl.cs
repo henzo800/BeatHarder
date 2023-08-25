@@ -5,6 +5,11 @@ using UnityEngine;
 public class PlayerControl : MonoBehaviour
 {
     public float speed = 0.05f;
+
+    public static Transform transformInstance;
+    void Awake() {
+        transformInstance = this.gameObject.transform;
+    }
     
     // Update is called once per frame
     void Update() {
