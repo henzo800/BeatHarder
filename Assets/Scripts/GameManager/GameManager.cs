@@ -31,7 +31,6 @@ public class GameManager : MonoBehaviour
         timeSinceStart += Time.deltaTime;
         foreach(Song.HitObject hitObject in currentSong.hitObjects.ToArray()){
             if(hitObject.time/1000 <= timeSinceStart){
-                Debug.Log(hitObject.x);
                 Instantiate(attackPrefab, new Vector3((((float)hitObject.x-256)/512) * 10, 0, (((float)hitObject.y-192)/384) * 10), Quaternion.identity);
                 currentSong.hitObjects.Remove(hitObject);
             }
