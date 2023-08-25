@@ -354,9 +354,7 @@
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.7f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 "Assets/Scripts/FPS.cs"
 "Assets/Scripts/Mouse.cs"
-"Assets/Scripts/test.cs"
-"Assets/Scripts/test3.cs"
-"Assets/Scripts/text2.cs"
+"Assets/Scripts/Movement.cs"
 -langversion:9.0
 
 /deterministic
