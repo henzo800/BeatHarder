@@ -4,15 +4,29 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
-    public float speed = 0.05f;
-    
+    public float sensX;
+    public float sensY;
+
+    float xRotation;
+    float yRotation;
+
+    void Start() {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
     // Update is called once per frame
     void Update() {
-        float xMove = Input.GetAxis("Horizontal");
-        float zMove = Input.GetAxis("Vertical");
-        
-        Vector3 moveDirection = new Vector3(xMove, 0.0f, zMove);
+        // Get mouse input
+        float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
+        float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
 
-        transform.position += moveDirection * speed;
+        yRotation += mouseX;
+        xRotation -= mouseY;
+
+        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+
+        // Rotate cam and orientation
+        transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
     }
 }
