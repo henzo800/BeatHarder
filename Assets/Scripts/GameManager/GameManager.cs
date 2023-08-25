@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timeSinceStart += Time.deltaTime;
+        timeSinceStart = audioSource.time;
         foreach(Song.HitObject hitObject in currentSong.hitObjects.ToArray()){
             if(hitObject.time/1000 <= timeSinceStart){
                 Debug.Log(hitObject.x);
