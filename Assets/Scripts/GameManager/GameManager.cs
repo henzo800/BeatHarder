@@ -1,28 +1,49 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.Text.RegularExpressions;
-using System.Net.WebSockets;
 using System;
 
 public class GameManager : MonoBehaviour
 {
-    public SongData currentSong;
-    public string OsuRaw;
+    public SongData currentSongData;
+    public BoxCollider spawnArea;
+    public GameObject attackPrefab;
+    public float timeSinceStart;
+    public Song currentSong;
+    AudioSource audioSource;
+    void Awake() {
+        audioSource = GetComponent<AudioSource>();
+    }
     // Start is called before the first frame update
     void Start()
     {
-        OsuRaw = currentSong.OSU_FILE.ToString();
-        Debug.Log(OsuRaw);
-        OsuSongParse(OsuRaw);
+        string OsuRaw = currentSongData.OSU_FILE.ToString();
+
+        currentSong = OsuSongParse(OsuRaw);
+        audioSource.clip = currentSongData.AUDIO_TRACK;
+        audioSource.Play();
     }
+    
+    // Update is called once per frame
+    void Update()
+    {
+        timeSinceStart += Time.deltaTime;
+        foreach(Song.HitObject hitObject in currentSong.hitObjects.ToArray()){
+            if(hitObject.time/1000 <= timeSinceStart){
+                Debug.Log(hitObject.x);
+                Instantiate(attackPrefab, new Vector3((((float)hitObject.x-256)/512) * 10, 0, (((float)hitObject.y-192)/384) * 10), Quaternion.identity);
+                currentSong.hitObjects.Remove(hitObject);
+            }
+        }
+    }
+
     Song OsuSongParse(string rawOsuString){
-        Song song = new Song();
+        Debug.Log("(-) Parsing OSU File");
+        Song song = new();
         int startScanPlace = rawOsuString.IndexOf("[TimingPoints]");
         int endScanPlace = Regex.Match(rawOsuString.Substring(startScanPlace), @"(?<=\r?\n)[ \t]*(\r?\n|$)").Index - 1;
-        //Debug.Log(startScanPlace + "," + endScanPlace);
+        Debug.Log(rawOsuString.Substring(startScanPlace, endScanPlace));
         string[] TimingPointsRaw = rawOsuString.Substring(startScanPlace, endScanPlace).Split("\n");
         for(int i = 1; i < TimingPointsRaw.Length - 1; i++){
             string[] values = TimingPointsRaw[i].Split(",");
@@ -42,7 +63,7 @@ public class GameManager : MonoBehaviour
 
         startScanPlace = rawOsuString.IndexOf("[HitObjects]");
         endScanPlace = Regex.Match(rawOsuString.Substring(startScanPlace), @"(?<=\r?\n)[ \t]*(\r?\n|$)").Index;
-        //Debug.Log(startScanPlace + "," + endScanPlace);
+        Debug.Log(rawOsuString.Substring(startScanPlace, endScanPlace));
         string[] HitObjectsRaw = rawOsuString.Substring(startScanPlace, endScanPlace).Split("\n");
         for(int i = 1; i < HitObjectsRaw.Length - 1; i++){
             string[] values = HitObjectsRaw[i].Split(",");
@@ -57,13 +78,7 @@ public class GameManager : MonoBehaviour
             };
             song.hitObjects.Add(hitObject); 
         }
-
-        return new Song();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Debug.Log("(-) Done Processing Osu File");
+        return song;
     }
 }

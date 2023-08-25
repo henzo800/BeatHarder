@@ -5,17 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
-    [System.Serializable]
-    public struct SceneData{
-        public string Name;
-    }
-    public List<SceneData> SceneList;
+    public static SceneController instance;
     string NextScene = null;
+    string currentScene = null;
     public GameObject LoadScreenPanel;
+    void Awake() {
+        instance = this;
+    }
     // Start is called before the first frame update
     void Start()
     {
         LoadScreenPanel.SetActive(false);
+        //Transition to Main Menu
+        LoadScene("MainMenu");
     }
 
     // Update is called once per frame
@@ -31,13 +33,23 @@ public class SceneController : MonoBehaviour
     IEnumerator LoadSceneCoroutine(){
         //Show Load panel
         LoadScreenPanel.SetActive(true);
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(NextScene);
-        while (!asyncLoad.isDone)
+        if(currentScene != null){
+            AsyncOperation LastSceneUnload = SceneManager.UnloadSceneAsync(currentScene);
+            while (!LastSceneUnload.isDone)
+            {
+                yield return null;
+            }
+        }
+
+        AsyncOperation NextSceneLoad = SceneManager.LoadSceneAsync(NextScene, LoadSceneMode.Additive);
+        
+        while (!NextSceneLoad.isDone)
         {
             yield return null;
         }
         //Hide load screen
         LoadScreenPanel.SetActive(false);
+        currentScene = NextScene;
         NextScene = null;
 
     }
