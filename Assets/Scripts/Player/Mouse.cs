@@ -11,7 +11,13 @@ public class Mouse : MonoBehaviour
     public GameObject player;
     float xRotation;
     float yRotation;
-    public ParticleSystem muzzleFlash;
+    public ParticleSystem gunMuzzleFlash;
+    public Animator swordAnimator;
+    public Transform MeleePoint;
+    public GameObject lightningBolt;
+
+    public bool canAttack = false;
+
     void Start() {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -19,15 +25,19 @@ public class Mouse : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-
-        if (Input.GetMouseButtonDown(0) && PlayerController.instance.IsInTime()) // 0 represents the left mouse button
-        {
-            print("In Time");
-            
-            Shoot();
-        } else if (Input.GetMouseButtonDown(0) && !PlayerController.instance.IsInTime()) {
-            // no fire
-            print("Off time");
+        if(Input.GetMouseButtonDown(0)){
+            if (IsInTime()) {
+                if (PlayerController.instance.characterData.WEAPON == "Ranged") { // if ranged
+                    Shoot();
+                } else if (PlayerController.instance.characterData.WEAPON == "Melee") { // if melee
+                    Melee();
+                }
+            } else {
+                print("Not in time");
+            }
+        }
+        if(Input.GetMouseButtonDown(1)){ // Right click
+            // add parry
         }
         // Get mouse input
         float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
@@ -46,21 +56,49 @@ public class Mouse : MonoBehaviour
     }
     void Shoot ()
     {
-        muzzleFlash.Play();
+        gunMuzzleFlash.Play();
+
+        lightningBolt.SetActive(true);
+        StartCoroutine(DeactivateLightning());
 
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit))
         {
-            Debug.Log(hit.transform.name);
+            Debug.Log("Shot Hit: " + hit.transform.name);
 
-            IDamageable target = hit.transform.GetComponent<IDamageable>();
-            
-            if (target != null) 
+            IDamageable target;
+            if (hit.transform.TryGetComponent<IDamageable>(out target)) 
             {
                 target.TakeDamage(PlayerController.instance.characterData.DAMAGE);
-
             }
 
         }
     }
+
+    IEnumerator DeactivateLightning() {
+        yield return new WaitForSeconds(0.5f);
+        lightningBolt.SetActive(false);
+    }
+    void Melee() {
+        swordAnimator.SetTrigger("downwardSlash");
+        
+        Collider[] hitColliders = Physics.OverlapBox(MeleePoint.position, new Vector3(1,2,1));
+        foreach(Collider collider in hitColliders){
+            Debug.Log("Melee Hit: " + collider.transform.name);
+
+            IDamageable target;
+            if (collider.transform.TryGetComponent<IDamageable>(out target)) 
+            {
+                target.TakeDamage(PlayerController.instance.characterData.DAMAGE * 2);
+            }
+        }
+    }
+
+    private bool IsInTime() {
+        float lastBeat = GameManager.instance.getAudioSource() * 1000 % GameManager.instance.beatLength;
+        float nextBeat = GameManager.instance.beatLength - lastBeat;
+
+        return lastBeat <= 150f || nextBeat <= 150f;
+    }
+
 }

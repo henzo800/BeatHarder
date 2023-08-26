@@ -78,7 +78,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d62a68a3d9173a34a9adaa3cd89a00e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterData: {fileID: 11400000, guid: f66eeb72a60938441839b75b0ebc0cbe, type: 2}
   mount: {fileID: 6953416691361941419}
+  bullet: {fileID: 422191245487799121, guid: 4bb7b85b7ea1d7c4eacca4bfc6621f19, type: 3}
+  health: 0
 --- !u!114 &8656158418198852474
 MonoBehaviour:
   m_ObjectHideFlags: 0

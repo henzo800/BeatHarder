@@ -9,4 +9,5 @@ public class CharacterData : ScriptableObject
     public float HEALTH;
     public float SPEED;
     public float DAMAGE;
+    public string WEAPON;
 }
