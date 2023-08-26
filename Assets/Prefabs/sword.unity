@@ -708,6 +708,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 428740063}
+  - component: {fileID: 428740064}
   m_Layer: 0
   m_Name: weapon holder
   m_TagString: Untagged
@@ -731,6 +732,21 @@ Transform:
   - {fileID: 127895865}
   m_Father: {fileID: 1421494491}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &428740064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 428740062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cba0ecfae22d2894d9b5d0601c1dd6b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sword: {fileID: 1352269897}
+  CanAttack: 1
+  AttackCooldown: 1
 --- !u!1001 &533453180
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1373,6 +1389,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
+--- !u!1 &1352269897 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: a9e8b0c84ce4b2749aca0e63a676e439, type: 3}
+  m_PrefabInstance: {fileID: 604974342}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1421494491 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8728996550862412196, guid: e870591bbe258714e9c31d2ff82151a0, type: 3}
