@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerControl : MonoBehaviour
+public class PlayerControl : MonoBehaviour, IDamageable
 {
     public float speed = 0.05f;
     public float health = 10f;
@@ -17,10 +17,17 @@ public class PlayerControl : MonoBehaviour
         transform.position += moveDirection * speed;
     }
 
-    void OnTriggerEnter(Collider other) {
-        if (other.gameObject.tag == "Damage collider") {
-            Debug.Log("Ouch.");
+    // void OnTriggerEnter(Collider other) {
+    //     if (other.gameObject.tag == "Damage collider") {
+    //         print("ouch");
+    //     }
+    // }
+
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+        if (health <= 0) {
+            Destroy(gameObject);
         }
     }
-
 }

@@ -34,8 +34,11 @@ public class FollowingMinionController : MonoBehaviour, IDamageable
             animator.SetBool("IsWalking", true);
         }
     }
-    void OnCollisionEnter(Collision collision) {
+    void OnCollisionEnter(Collider collision) {
         Debug.Log("Collided with: " + collision.gameObject.name);
+        if (collision.gameObject.tag == "Player") {
+            collision.GetComponent<IDamageable>().TakeDamage(characterData.DAMAGE);
+        }
     }
 
     public void TakeDamage(float damage)
