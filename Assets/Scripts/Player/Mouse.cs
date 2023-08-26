@@ -14,6 +14,7 @@ public class Mouse : MonoBehaviour
     public ParticleSystem gunMuzzleFlash;
     public Animator swordAnimator;
     public Transform MeleePoint;
+    public GameObject lightningBolt;
     void Start() {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -46,6 +47,9 @@ public class Mouse : MonoBehaviour
     {
         gunMuzzleFlash.Play();
 
+        lightningBolt.SetActive(true);
+        StartCoroutine(DeactivateLightning());
+
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit))
         {
@@ -58,6 +62,11 @@ public class Mouse : MonoBehaviour
             }
 
         }
+    }
+
+    IEnumerator DeactivateLightning() {
+        yield return new WaitForSeconds(0.5f);
+        lightningBolt.SetActive(false);
     }
     void Melee() {
         swordAnimator.SetTrigger("IsUsed");
