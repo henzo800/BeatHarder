@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PinDamageController : MonoBehaviour
+public class SweepAttackController : MonoBehaviour
 {
-    public float damage = 1f;
-
     // Start is called before the first frame update
+    public GameObject sweepParticle;
+    public int numParticles = 24;
+
     void Start()
     {
-        Destroy(gameObject, 0.5f);
+        
     }
 
     // Update is called once per frame

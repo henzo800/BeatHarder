@@ -131,4 +131,10 @@ public class PlayerController : MonoBehaviour
     private void ResetJump() {
         readyToJump = true;
     }
+
+    void OnTriggerEnter(Collider other) {
+        if (other.gameObject.tag == "Damage collider") {
+            Debug.Log("Ouch");
+        }
+    }
 }
