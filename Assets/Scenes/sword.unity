@@ -1191,14 +1191,6 @@ PrefabInstance:
       propertyPath: playerCam
       value: 
       objectReference: {fileID: 1421494491}
-    - target: {fileID: 7763292702816049118, guid: 9a245685b627821419e635958313809b, type: 3}
-      propertyPath: playerCam
-      value: 
-      objectReference: {fileID: 1421494491}
-    - target: {fileID: 6590586893435330035, guid: 9a245685b627821419e635958313809b, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1334,7 +1326,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 10969864}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -1351,3 +1343,4 @@ SceneRoots:
   - {fileID: 873214206}
   - {fileID: 802180675}
   - {fileID: 1486025935}
+  - {fileID: 1918063868}
