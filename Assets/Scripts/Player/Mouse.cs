@@ -23,10 +23,15 @@ public class Mouse : MonoBehaviour
     // Update is called once per frame
     void Update() {
         if(Input.GetMouseButtonDown(0)){
-            Shoot();
+            if (PlayerController.instance.characterData.WEAPON == "Ranged") { // if ranged
+                Shoot();
+            } else if (PlayerController.instance.characterData.WEAPON == "Melee") { // if melee
+                Melee();
+            }
         }
         if(Input.GetMouseButtonDown(1)){
-            Melee();
+            print("Not In Time");
+            // add sound here or something
         }
         // Get mouse input
         float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;

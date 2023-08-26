@@ -16,3 +16,4 @@ MonoBehaviour:
   HEALTH: 100
   SPEED: 10
   DAMAGE: 100
+  WEAPON: Ranged

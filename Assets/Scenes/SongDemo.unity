@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -513,6 +513,10 @@ PrefabInstance:
       propertyPath: orientation
       value: 
       objectReference: {fileID: 1579074410}
+    - target: {fileID: 8804123622322159940, guid: e870591bbe258714e9c31d2ff82151a0, type: 3}
+      propertyPath: lightningBolt
+      value: 
+      objectReference: {fileID: 1915130954}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -638,6 +642,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5851923399958662083, guid: 9a245685b627821419e635958313809b, type: 3}
   m_PrefabInstance: {fileID: 2047738658}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1915130954 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4830270746952488472, guid: e870591bbe258714e9c31d2ff82151a0, type: 3}
+  m_PrefabInstance: {fileID: 513093795}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1930871875 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8728996550862412196, guid: e870591bbe258714e9c31d2ff82151a0, type: 3}
@@ -654,6 +663,10 @@ PrefabInstance:
     - target: {fileID: 1744849896794187719, guid: 9a245685b627821419e635958313809b, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1744849896794187719, guid: 9a245685b627821419e635958313809b, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1744849896794187719, guid: 9a245685b627821419e635958313809b, type: 3}
       propertyPath: m_TagString
@@ -710,7 +723,7 @@ PrefabInstance:
     - target: {fileID: 8184660568065930694, guid: 9a245685b627821419e635958313809b, type: 3}
       propertyPath: characterData
       value: 
-      objectReference: {fileID: 11400000, guid: e459e5f14251be74fb36e9edad4bd870, type: 2}
+      objectReference: {fileID: 11400000, guid: 20dee5560c00f8746ada9b54b540cde9, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -16,3 +16,4 @@ MonoBehaviour:
   HEALTH: 500
   SPEED: 15
   DAMAGE: 15
+  WEAPON: Melee

@@ -16,4 +16,4 @@ MonoBehaviour:
   HEALTH: 12
   SPEED: 3
   DAMAGE: 10
-  MESH_BODY: {fileID: 0}
+  WEAPON: Ranged

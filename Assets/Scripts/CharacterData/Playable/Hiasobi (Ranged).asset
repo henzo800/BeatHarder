@@ -16,4 +16,4 @@ MonoBehaviour:
   HEALTH: 8
   SPEED: 2
   DAMAGE: 8
-  MESH_BODY: {fileID: 0}
+  WEAPON: Melee
