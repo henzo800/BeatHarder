@@ -14,6 +14,14 @@ public class PlayerController : MonoBehaviour
     public float airMultiplier;
     bool readyToJump = true;
 
+    public MovementState state;
+    public enum MovementState {
+        dashing
+    }
+
+    public float dashSpeed;
+    public bool dashing;
+
     [Header("Keybinds")]
     public KeyCode jumpKey = KeyCode.Space;
 
@@ -57,6 +65,14 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate() {
         MovePlayer();
     }
+
+    private void StateHandler() {
+        if (dashing) {
+            state = MovementState.dashing;
+            speed = dashSpeed;
+
+        }
+    }
     private void MovePlayer() {
         // Calculate movement direction
         moveDirection = transform.forward * verticalInput + transform.right * horizontalInput;
@@ -89,7 +105,12 @@ public class PlayerController : MonoBehaviour
         Vector3 flatVel = new Vector3(body.velocity.x, 0f, body.velocity.z);
 
         // limit velocity if needed
-        if (flatVel.magnitude > speed) {
+        if (dashing) {
+            if (flatVel.magnitude > speed + 20) {
+                Vector3 limitedVel = flatVel.normalized * (speed + 20);
+                body.velocity = new Vector3(limitedVel.x, body.velocity.y, limitedVel.z);
+            }
+        } else if (flatVel.magnitude > speed) {
             Vector3 limitedVel = flatVel.normalized * speed;
             body.velocity = new Vector3(limitedVel.x, body.velocity.y, limitedVel.z);
 
