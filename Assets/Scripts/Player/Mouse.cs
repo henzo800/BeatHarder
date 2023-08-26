@@ -19,6 +19,16 @@ public class Mouse : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
+
+        if (Input.GetMouseButtonDown(0) && PlayerController.instance.IsInTime()) // 0 represents the left mouse button
+        {
+            print("In Time");
+            
+            Shoot();
+        } else if (Input.GetMouseButtonDown(0) && !PlayerController.instance.IsInTime()) {
+            // no fire
+            print("Off time");
+        }
         // Get mouse input
         float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
         float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;

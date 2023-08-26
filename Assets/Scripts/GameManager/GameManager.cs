@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour
     void PinAttack(Vector3 position, float indicatorLength) {
         // start indicator animation
         Instantiate(pinIndicator, position + new Vector3(0f, 0.01f, 0f), Quaternion.Euler(0f, 0f, 0f));
-        Debug.Log("Pin spawned at " + position.x + ", " + position.z);
+        //Debug.Log("Pin spawned at " + position.x + ", " + position.z);
 
         // do damage
         StartCoroutine(PinDamage(position, indicatorLength));
@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator PinDamage(Vector3 position, float indicatorLength) {
         yield return new WaitForSeconds(indicatorLength);
-        Debug.Log("Spawned pin damage");
+        //Debug.Log("Spawned pin damage");
         Instantiate(pinDamage, position, Quaternion.Euler(0f, 0f, 0f));
     }
 
