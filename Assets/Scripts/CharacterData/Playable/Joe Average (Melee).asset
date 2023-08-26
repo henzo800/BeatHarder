@@ -16,4 +16,8 @@ MonoBehaviour:
   HEALTH: 12
   SPEED: 3
   DAMAGE: 10
+<<<<<<< Updated upstream
   MESH_BODY: {fileID: 0}
+=======
+  WEAPON: Melee
+>>>>>>> Stashed changes

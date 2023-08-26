@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour, IDamageable
 {
-    public float speed;
-    public float lifetime;
+    public float speed = 5;
+    public float lifetime = 10;
+    public float damage = 10;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,9 +23,14 @@ public class BulletController : MonoBehaviour, IDamageable
             Destroy(this.gameObject);
         }
     }
-    void OnCollisionEnter(Collision collision)
-    {
-        //Damage hit object
+    void OnTriggerEnter(Collider other){
+        Debug.Log(other.gameObject.name);
+        
+        if (other.gameObject.TryGetComponent<IDamageable>(out IDamageable target))
+        {
+            target.TakeDamage(damage);
+        }
+
         Destroy(this.gameObject);
     }
 
