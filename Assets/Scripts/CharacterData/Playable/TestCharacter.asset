@@ -16,4 +16,3 @@ MonoBehaviour:
   HEALTH: 100
   SPEED: 10
   DAMAGE: 100
-  MESH_BODY: {fileID: 0}
