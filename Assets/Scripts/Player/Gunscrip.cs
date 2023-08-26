@@ -10,7 +10,7 @@ public class Gunscrip : MonoBehaviour
     public Camera fpsCam;
 
     // Update is called once per frame
-    void Update()
+    void Update ()
 
     {
 
@@ -23,11 +23,22 @@ public class Gunscrip : MonoBehaviour
     }
 
 
-    void Shoot()
+    void Shoot ()
     {
         RaycastHit hit;
-        Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit);
-        Debug.Log(hit.transform.name);
+        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit));
+        {
+            Debug.Log(hit.transform.name);
+
+            Target target = hit.transform.GetComponent<Target>();
+            
+            if (target != null) 
+            {
+                target.TakeDamage(damage);
+
+            }
+
+        }
     }
 
 }
