@@ -61,6 +61,7 @@ public class Mouse : MonoBehaviour
     }
     void Melee() {
         swordAnimator.SetTrigger("IsUsed");
+        
         Collider[] hitColliders = Physics.OverlapBox(MeleePoint.position, new Vector3(1,2,1));
         foreach(Collider collider in hitColliders){
             Debug.Log("Melee Hit: " + collider.transform.name);

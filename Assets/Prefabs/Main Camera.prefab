@@ -378,7 +378,8 @@ MonoBehaviour:
   sensY: 200
   orientation: {fileID: 0}
   player: {fileID: 0}
-  muzzleFlash: {fileID: 4238124341729360772}
+  gunMuzzleFlash: {fileID: 4238124341729360772}
+  swordAnimator: {fileID: 8750060877851018040}
   MeleePoint: {fileID: 766806639272385824}
 --- !u!1 &5012835672778622823
 GameObject:
@@ -752,7 +753,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 4cba2a89bce5afb48b8de45b6ef1b303, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4cba2a89bce5afb48b8de45b6ef1b303, type: 3}
       propertyPath: m_LocalPosition.x
@@ -886,6 +887,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9e8b0c84ce4b2749aca0e63a676e439, type: 3}
+--- !u!95 &8750060877851018040 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9500000, guid: a9e8b0c84ce4b2749aca0e63a676e439, type: 3}
+  m_PrefabInstance: {fileID: 8750060877858387544}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8750060877858516184 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: a9e8b0c84ce4b2749aca0e63a676e439, type: 3}
