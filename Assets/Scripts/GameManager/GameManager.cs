@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
             if(hitObject.time/1000 <= timeSinceStart){
                 switch(hitObject.type){
                     case 0:
-                        Instantiate(Minons[UnityEngine.Random.Range(0,1)], new Vector3((((float)hitObject.x-256)/512) * arenaSize, 0, (((float)hitObject.y-192)/384) * arenaSize), Quaternion.identity);
+                        Instantiate(Minons[0], new Vector3((((float)hitObject.x-256)/512) * arenaSize, 0, (((float)hitObject.y-192)/384) * arenaSize), Quaternion.identity);
                         break;
                     case 1:
                         Instantiate(BossStrike[0], new Vector3((((float)hitObject.x-256)/512) * arenaSize, 0, (((float)hitObject.y-192)/384) * arenaSize), Quaternion.identity);
