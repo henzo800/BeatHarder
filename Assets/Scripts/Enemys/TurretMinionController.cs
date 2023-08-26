@@ -17,4 +17,11 @@ public class TurretMinionController : MonoBehaviour
     {
         mount.LookAt(Camera.main.transform.position);
     }
+
+    void Fire(float bulletSpeed, float bulletLifetime) {
+        GameObject currentBullet = Instantiate(bullet, mount.transform.position, mount.transform.rotation);
+        currentBullet.GetComponent<BulletController>().speed = bulletSpeed;
+        currentBullet.GetComponent<BulletController>().lifetime = bulletLifetime;
+
+    }
 }
