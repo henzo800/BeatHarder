@@ -133,4 +133,9 @@ public class PlayerController : MonoBehaviour
         readyToJump = true;
     }
 
+    void OnTriggerEnter(Collider other) {
+        if (other.gameObject.tag == "Damage collider") {
+            Debug.Log("Ouch");
+        }
+    }
 }
