@@ -15,6 +15,9 @@ public class Mouse : MonoBehaviour
     public Animator swordAnimator;
     public Transform MeleePoint;
     public GameObject lightningBolt;
+
+    public bool canAttack = false;
+
     void Start() {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -23,15 +26,18 @@ public class Mouse : MonoBehaviour
     // Update is called once per frame
     void Update() {
         if(Input.GetMouseButtonDown(0)){
-            if (PlayerController.instance.characterData.WEAPON == "Ranged") { // if ranged
-                Shoot();
-            } else if (PlayerController.instance.characterData.WEAPON == "Melee") { // if melee
-                Melee();
+            if (IsInTime()) {
+                if (PlayerController.instance.characterData.WEAPON == "Ranged") { // if ranged
+                    Shoot();
+                } else if (PlayerController.instance.characterData.WEAPON == "Melee") { // if melee
+                    Melee();
+                }
+            } else {
+                print("Not in time");
             }
         }
-        if(Input.GetMouseButtonDown(1)){
-            print("Not In Time");
-            // add sound here or something
+        if(Input.GetMouseButtonDown(1)){ // Right click
+            // add parry
         }
         // Get mouse input
         float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
@@ -74,7 +80,7 @@ public class Mouse : MonoBehaviour
         lightningBolt.SetActive(false);
     }
     void Melee() {
-        swordAnimator.SetTrigger("IsUsed");
+        swordAnimator.SetTrigger("downwardSlash");
         
         Collider[] hitColliders = Physics.OverlapBox(MeleePoint.position, new Vector3(1,2,1));
         foreach(Collider collider in hitColliders){
@@ -87,4 +93,12 @@ public class Mouse : MonoBehaviour
             }
         }
     }
+
+    private bool IsInTime() {
+        float lastBeat = GameManager.instance.getAudioSource() * 1000 % GameManager.instance.beatLength;
+        float nextBeat = GameManager.instance.beatLength - lastBeat;
+
+        return lastBeat <= 150f || nextBeat <= 150f;
+    }
+
 }
