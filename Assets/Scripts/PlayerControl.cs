@@ -5,11 +5,7 @@ using UnityEngine;
 public class PlayerControl : MonoBehaviour
 {
     public float speed = 0.05f;
-
-    public static Transform transformInstance;
-    void Awake() {
-        transformInstance = this.gameObject.transform;
-    }
+    public float health = 10f;
     
     // Update is called once per frame
     void Update() {
@@ -20,4 +16,11 @@ public class PlayerControl : MonoBehaviour
 
         transform.position += moveDirection * speed;
     }
+
+    void OnTriggerEnter(Collider other) {
+        if (other.gameObject.tag == "Damage collider") {
+            Debug.Log("Ouch.");
+        }
+    }
+
 }
