@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class FollowingMinionController : MonoBehaviour
+public class FollowingMinionController : MonoBehaviour, IDamageable
 {
     public CharacterData characterData;
     NavMeshAgent navMeshAgent;
     Animator animator;
-
+    public float health;
     void Awake()
     {
         // NavMeshHit closestHit;
@@ -21,7 +21,7 @@ public class FollowingMinionController : MonoBehaviour
     }
 
     void Start() {
-        
+        health = characterData.HEALTH;
     }
 
     // Update is called once per frame
@@ -32,6 +32,17 @@ public class FollowingMinionController : MonoBehaviour
             animator.SetBool("IsWalking", false);
         }else{
             animator.SetBool("IsWalking", true);
+        }
+    }
+    void OnCollisionEnter(Collision collision) {
+        Debug.Log("Collided with: " + collision.gameObject.name);
+    }
+
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+        if(health <= 0){
+            Destroy(this.gameObject);
         }
     }
 }

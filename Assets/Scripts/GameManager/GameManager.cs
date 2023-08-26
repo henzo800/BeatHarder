@@ -6,13 +6,21 @@ using System;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance;
     public SongData currentSongData;
     public BoxCollider spawnArea;
     public GameObject attackPrefab;
     public float timeSinceStart;
     public Song currentSong;
-    AudioSource audioSource;
+    public AudioSource audioSource;
+    public float beatLength;
+    public float getAudioSource() {
+        return this.audioSource.time;
+    }
     void Awake() {
+        if(instance == null){
+            instance = this;
+        }
         audioSource = GetComponent<AudioSource>();
     }
     // Start is called before the first frame update
@@ -23,11 +31,14 @@ public class GameManager : MonoBehaviour
         currentSong = OsuSongParse(OsuRaw);
         audioSource.clip = currentSongData.AUDIO_TRACK;
         audioSource.Play();
+
+        beatLength = (float)currentSong.timingPoints[0].beatLength;
     }
     
     // Update is called once per frame
     void Update()
     {
+        // Enemy Attack Pattern based on the osu mapping timing
         timeSinceStart = audioSource.time;
         foreach(Song.HitObject hitObject in currentSong.hitObjects.ToArray()){
             if(hitObject.time/1000 <= timeSinceStart){
@@ -35,6 +46,8 @@ public class GameManager : MonoBehaviour
                 currentSong.hitObjects.Remove(hitObject);
             }
         }
+        
+
     }
 
     Song OsuSongParse(string rawOsuString){
