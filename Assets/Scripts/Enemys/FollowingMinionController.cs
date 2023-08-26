@@ -36,6 +36,9 @@ public class FollowingMinionController : MonoBehaviour, IDamageable
     }
     void OnCollisionEnter(Collision collision) {
         Debug.Log("Collided with: " + collision.gameObject.name);
+        if (collision.gameObject.tag == "Player") {
+            collision.gameObject.GetComponent<IDamageable>().TakeDamage(characterData.DAMAGE);
+        }
     }
 
     public void TakeDamage(float damage)

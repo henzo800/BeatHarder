@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IDamageable
 {
     public static PlayerController instance;
     public CharacterData characterData;
@@ -133,9 +133,14 @@ public class PlayerController : MonoBehaviour
         readyToJump = true;
     }
 
-    void OnTriggerEnter(Collider other) {
+    void OnCollisionEnter(Collision other) {
         if (other.gameObject.tag == "Damage collider") {
-            Debug.Log("Ouch");
+            other.gameObject.GetComponent<IDamageable>().TakeDamage(characterData.DAMAGE);
         }
+    }
+
+    public void TakeDamage(float damage)
+    {
+        characterData.HEALTH -= damage;
     }
 }
