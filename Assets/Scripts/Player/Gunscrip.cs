@@ -33,7 +33,7 @@ public class Gunscrip : MonoBehaviour
         {
             Debug.Log(hit.transform.name);
 
-            Target target = hit.transform.GetComponent<Target>();
+            IDamageable target = hit.transform.GetComponent<IDamageable>();
             
             if (target != null) 
             {
