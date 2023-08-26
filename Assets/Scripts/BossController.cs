@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossController : MonoBehaviour
+public class BossController : MonoBehaviour, IDamageable
 {
     // player object
     private GameObject player;
@@ -18,7 +18,7 @@ public class BossController : MonoBehaviour
     public GameObject projectileIndicator; // indicator for projectile
     public GameObject projectileDamage; // damage object for projectile
     public GameObject minionSpawner;
-
+    public float health;
     // bpm
     public float bpm;
     public float indicatorLength; // length, in beats of indication before the damage frame
@@ -81,5 +81,11 @@ public class BossController : MonoBehaviour
 
     }
 
-    
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+        if (health <= 0) {
+            Destroy(gameObject);
+        }
+    }
 }
