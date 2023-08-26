@@ -9,11 +9,14 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public SongData currentSongData;
     public BoxCollider spawnArea;
-    public GameObject attackPrefab;
+    public List<GameObject> Minons;
+    public List<GameObject> BossStrike;
+    public GameObject BossSpecial;
     public float timeSinceStart;
     public Song currentSong;
     public AudioSource audioSource;
     public float beatLength;
+    public float arenaSize;
     public float getAudioSource() {
         return this.audioSource.time;
     }
@@ -40,7 +43,17 @@ public class GameManager : MonoBehaviour
         timeSinceStart = audioSource.time;
         foreach(Song.HitObject hitObject in currentSong.hitObjects.ToArray()){
             if(hitObject.time/1000 <= timeSinceStart){
-                Instantiate(attackPrefab, new Vector3((((float)hitObject.x-256)/512) * 10, 0, (((float)hitObject.y-192)/384) * 10), Quaternion.identity);
+                switch(hitObject.type){
+                    case 0:
+                        Instantiate(Minons[UnityEngine.Random.Range(0,1)], new Vector3((((float)hitObject.x-256)/512) * arenaSize, 0, (((float)hitObject.y-192)/384) * arenaSize), Quaternion.identity);
+                        break;
+                    case 1:
+                        Instantiate(BossStrike[0], new Vector3((((float)hitObject.x-256)/512) * arenaSize, 0, (((float)hitObject.y-192)/384) * arenaSize), Quaternion.identity);
+                        break;
+                    case 3:
+                        Instantiate(BossSpecial, new Vector3((((float)hitObject.x-256)/512) * arenaSize, 0, (((float)hitObject.y-192)/384) * arenaSize), Quaternion.identity);
+                        break;
+                }
                 currentSong.hitObjects.Remove(hitObject);
             }
         }
