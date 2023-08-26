@@ -13,8 +13,8 @@ public class BossController : MonoBehaviour
     // attack objects
     public GameObject pinIndicator; // animation for pin
     public GameObject pinDamage; // damage object
-    public GameObject sweepIndicator; // animation for sweep
-    public GameObject sweepDamage; // damage object for sweep
+    public GameObject sweepParticle; // particle for sweep
+    public int numParticles = 24;
     public GameObject projectileIndicator; // indicator for projectile
     public GameObject projectileDamage; // damage object for projectile
     public GameObject minionSpawner;
@@ -32,9 +32,12 @@ public class BossController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P)) {
+        if (Input.GetKeyDown(KeyCode.Alpha1)) {
             PinAttack();
+        } else if (Input.GetKeyDown(KeyCode.Alpha2)) {
+            SweepAttack();
         }
+
     }
 
     // Pin
@@ -47,21 +50,22 @@ public class BossController : MonoBehaviour
         playerPosition.y = 0f;
 
         // do damage
-        Invoke("PinDamage", 2.5f);
+        // Invoke("PinDamage", 2.5f);
+        StartCoroutine(PinDamage(playerPosition));
     }
 
-    void PinDamage() {
+    IEnumerator PinDamage(Vector3 playerPosition) {
+        yield return new WaitForSeconds(2.5f);
         Instantiate(pinDamage, playerPosition, Quaternion.Euler(0f, 0f, 0f));
     }
 
     // Sweep
     void SweepAttack() {
-
-    }
-
-    // 
-    void SweepDamage() {
-
+        Vector3 position = transform.position + new Vector3(0f, 0.5f, 0f);
+        for (int i = 0; i < numParticles; i++) {
+            Quaternion rotation = Quaternion.Euler(0f, 90f + 180f / numParticles * i, 0);
+            GameObject particle = Instantiate(sweepParticle, position, rotation);
+        }
     }
 
     // projectile attack

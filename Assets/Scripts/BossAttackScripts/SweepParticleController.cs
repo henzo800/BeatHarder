@@ -2,30 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PinDamageController : MonoBehaviour
+public class SweepParticleController : MonoBehaviour
 {
-    public float damage = 1f;
+    public float speed = 5f;
 
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(gameObject, 0.5f);
+        Invoke("Destroy", 5f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        Vector3 velocity = transform.forward * speed * Time.deltaTime;
+        transform.position += velocity;
     }
 
-
-    void Destroy() {
+    void Destroy() 
+    {
         Destroy(gameObject);
     }
 
-    void OnTriggerEnter(Collider other) {
+    void OnTriggerEnter(Collider other) 
+    {
         if (other.gameObject.tag == "Player") {
-            other.GetComponent<IDamageable>().TakeDamage(damage);
+            Destroy(gameObject);
         }
     }
 }
