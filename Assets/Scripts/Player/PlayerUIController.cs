@@ -15,13 +15,18 @@ public class PlayerUIController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        TopIncoming.GetComponent<RectTransform>().anchoredPosition = new Vector3(0f,
-        Screen.height/2 - Screen.height/2*(((GameManager.instance.audioSource.time*1000) % (GameManager.instance.beatLength)) / GameManager.instance.beatLength)
-        ,0f);
+    {  
+        if(GameManager.instance != null){
+            TopIncoming.GetComponent<RectTransform>().anchoredPosition = new Vector3(0f,
+            Screen.height/2 - Screen.height/2*(((GameManager.instance.audioSource.time*1000) % (GameManager.instance.beatLength)) / GameManager.instance.beatLength)
+            ,0f);
 
-        DownIncoming.GetComponent<RectTransform>().anchoredPosition = new Vector3(0f,
-        - Screen.height/2 + Screen.height/2*(((GameManager.instance.audioSource.time*1000) % (GameManager.instance.beatLength)) / GameManager.instance.beatLength)
-        ,0f);
+            DownIncoming.GetComponent<RectTransform>().anchoredPosition = new Vector3(0f,
+            - Screen.height/2 + Screen.height/2*(((GameManager.instance.audioSource.time*1000) % (GameManager.instance.beatLength)) / GameManager.instance.beatLength)
+            ,0f);
+        }else{
+            TopIncoming.SetActive(false);
+            DownIncoming.SetActive(false);
+        }
     }
 }
