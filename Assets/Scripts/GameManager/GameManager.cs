@@ -18,9 +18,7 @@ public class GameManager : MonoBehaviour
         return this.audioSource.time;
     }
     void Awake() {
-        if(instance == null){
-            instance = this;
-        }
+        instance = this;
         audioSource = GetComponent<AudioSource>();
     }
     // Start is called before the first frame update
