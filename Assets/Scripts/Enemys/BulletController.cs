@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletController : MonoBehaviour
+public class BulletController : MonoBehaviour, IDamageable
 {
     public float speed;
     public float lifetime;
@@ -26,5 +26,10 @@ public class BulletController : MonoBehaviour
     {
         //Damage hit object
         Destroy(this.gameObject);
+    }
+
+    public void TakeDamage(float damage)
+    {
+        transform.rotation = PlayerController.instance.transform.rotation;
     }
 }
