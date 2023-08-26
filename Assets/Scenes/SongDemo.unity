@@ -317,10 +317,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentSongData: {fileID: 11400000, guid: 783972c87b17a494b8302944d5016ffa, type: 2}
   spawnArea: {fileID: 1008782964}
-  attackPrefab: {fileID: 6617048880198171390, guid: 18b017b4f64fc1040a26e1d4bc67e3a7, type: 3}
+  Minons: []
+  BossStrike: []
+  BossSpecial: {fileID: 0}
   timeSinceStart: 0
   audioSource: {fileID: 0}
   beatLength: 0
+  arenaSize: 0
 --- !u!4 &500667534
 Transform:
   m_ObjectHideFlags: 0
