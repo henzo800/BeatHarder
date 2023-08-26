@@ -180,6 +180,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1633477215}
     - target: {fileID: 8804123622322159940, guid: e870591bbe258714e9c31d2ff82151a0, type: 3}
+      propertyPath: muzzleFlash
+      value: 
+      objectReference: {fileID: 450842244}
+    - target: {fileID: 8804123622322159940, guid: e870591bbe258714e9c31d2ff82151a0, type: 3}
       propertyPath: orientation
       value: 
       objectReference: {fileID: 1811370887}
@@ -321,6 +325,11 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 1.2
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!198 &450842244 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4238124341729360772, guid: e870591bbe258714e9c31d2ff82151a0, type: 3}
+  m_PrefabInstance: {fileID: 112098259}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &700573332
 GameObject:
   m_ObjectHideFlags: 0
