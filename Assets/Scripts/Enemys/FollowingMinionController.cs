@@ -34,4 +34,7 @@ public class FollowingMinionController : MonoBehaviour
             animator.SetBool("IsWalking", true);
         }
     }
+    void OnCollisionEnter(Collision collision) {
+        Debug.Log("Collided with: " + collision.gameObject.name);
+    }
 }
