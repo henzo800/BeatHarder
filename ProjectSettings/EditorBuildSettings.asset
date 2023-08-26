@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 08176b9056c57154982e64131b160872
+  - enabled: 1
+    path: Assets/Scenes/SongDemo.unity
+    guid: 139acaa5231e3334f9ea4f58210aef04
   m_configObjects: {}

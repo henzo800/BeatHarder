@@ -25,7 +25,7 @@ public class SceneController : MonoBehaviour
     {
         
     }
-    void LoadScene(string SceneName){
+    public void LoadScene(string SceneName){
         NextScene = SceneName;
         StartCoroutine(LoadSceneCoroutine());
     }
