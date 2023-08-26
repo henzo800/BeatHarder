@@ -7,6 +7,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public static PlayerController instance;
+    public CharacterData characterData;
     [Header("Movement")]
     public float speed;
 
@@ -37,8 +38,8 @@ public class PlayerController : MonoBehaviour
     float verticalInput;
 
     Vector3 moveDirection;
-
     Rigidbody body;
+    
     void Awake() {
         instance = this;
     }
