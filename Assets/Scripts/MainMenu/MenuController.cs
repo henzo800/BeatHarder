@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MenuController : MonoBehaviour
 {
@@ -17,17 +19,21 @@ public class MenuController : MonoBehaviour
             GameObject button = Instantiate(levelSelectorButton, levelSelectorContentRoot.transform);
             button.name = name;
             button.GetComponentInChildren<TMP_Text>().text = name;
+            button.GetComponent<Button>().onClick.AddListener(() => OnSceneButtonClick(button.name)) ;
         } 
     }
 
-    void OnPlay() {
+    public void OnPlay() {
         pages[0].SetActive(false);
         pages[1].SetActive(true);
     }
-    void OnHowTo(){
+    public void OnHowTo(){
 
     }
-    void OnSettings(){
+    public void OnSettings(){
 
+    }
+    public void OnSceneButtonClick(string targetScene){
+        SceneController.instance.LoadScene(targetScene);
     }
 }
