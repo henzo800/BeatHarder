@@ -34,10 +34,10 @@ public class FollowingMinionController : MonoBehaviour, IDamageable
             animator.SetBool("IsWalking", true);
         }
     }
-    void OnCollisionEnter(Collider collision) {
+    void OnCollisionEnter(Collision collision) {
         Debug.Log("Collided with: " + collision.gameObject.name);
         if (collision.gameObject.tag == "Player") {
-            collision.GetComponent<IDamageable>().TakeDamage(characterData.DAMAGE);
+            collision.gameObject.GetComponent<IDamageable>().TakeDamage(characterData.DAMAGE);
         }
     }
 

@@ -133,9 +133,9 @@ public class PlayerController : MonoBehaviour, IDamageable
         readyToJump = true;
     }
 
-    void OnTriggerEnter(Collider other) {
+    void OnCollisionEnter(Collision other) {
         if (other.gameObject.tag == "Damage collider") {
-            other.GetComponent<IDamageable>().TakeDamage(characterData.DAMAGE);
+            other.gameObject.GetComponent<IDamageable>().TakeDamage(characterData.DAMAGE);
         }
     }
 
