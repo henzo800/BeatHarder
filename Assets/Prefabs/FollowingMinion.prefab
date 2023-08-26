@@ -14,7 +14,7 @@ GameObject:
   m_Layer: 0
   m_Name: FollowingMinion
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -133,6 +133,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Quandtum_SAP-1_v2_0
       objectReference: {fileID: 0}
+    - target: {fileID: 4285128077695161519, guid: 5cc3d828c7790034b99b747f386dde1a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 28b8584671ea1ec4ca1e24257a665f9c, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: -8162115279971634204, guid: 5cc3d828c7790034b99b747f386dde1a, type: 3}
