@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3126743928310690321}
-  - component: {fileID: 8184660568065930694}
   - component: {fileID: 3329101566356993553}
   - component: {fileID: 2604917459347758759}
   - component: {fileID: 965040358385122196}
@@ -18,7 +17,7 @@ GameObject:
   - component: {fileID: 8502621378104172328}
   - component: {fileID: 6200607392669743140}
   - component: {fileID: 6828379066615911911}
-  - component: {fileID: 7763292702816049118}
+  - component: {fileID: 1893016669243437944}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -5060,7 +5059,7 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &7763292702816049118
+--- !u!114 &1893016669243437944
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5069,17 +5068,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 1744849896794187719}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac27cde8b95c44f448068ef689b44f97, type: 3}
+  m_Script: {fileID: 11500000, guid: 4011162660ae041458e53fae6b09cb77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  orientation: {fileID: 3126743928310690321}
-  playerCam: {fileID: 0}
-  dashForce: 50
-  dashUpwardForce: 10
-  dashDuration: 1
-  dashCd: 0
-  dashCdTimer: 0
-  dashKey: 304
+  characterData: {fileID: 11400000, guid: e459e5f14251be74fb36e9edad4bd870, type: 2}
+  speed: 10
+  groundDrag: 5
+  jumpForce: 12
+  jumpCooldown: 0.25
+  airMultiplier: 0.4
+  state: 0
+  dashSpeed: 1
+  dashing: 0
+  jumpKey: 32
+  playerHeight: 2
+  ground:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1 &6727133534249975082
 GameObject:
   m_ObjectHideFlags: 0

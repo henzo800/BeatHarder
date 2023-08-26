@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -317,13 +317,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentSongData: {fileID: 11400000, guid: 783972c87b17a494b8302944d5016ffa, type: 2}
   spawnArea: {fileID: 1008782964}
-  Minons: []
-  BossStrike: []
-  BossSpecial: {fileID: 0}
+  Minions: []
   timeSinceStart: 0
   audioSource: {fileID: 0}
   beatLength: 0
-  arenaSize: 0
+  arenaSize: 50
+  pinIndicator: {fileID: 6617048880198171390, guid: 18b017b4f64fc1040a26e1d4bc67e3a7, type: 3}
+  pinDamage: {fileID: 4511873209497853487, guid: cc0e58b13edcbfd4e82fdf8950fea2c8, type: 3}
+  sweepParticle: {fileID: 1045755106378783264, guid: 5096e43ca9c904041acf2ffe43d62e1e, type: 3}
+  numParticles: 24
 --- !u!4 &500667534
 Transform:
   m_ObjectHideFlags: 0
@@ -610,10 +612,52 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1744849896794187719, guid: 9a245685b627821419e635958313809b, type: 3}
   m_PrefabInstance: {fileID: 2047738658}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1262906159 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3126743928310690321, guid: 9a245685b627821419e635958313809b, type: 3}
+  m_PrefabInstance: {fileID: 2047738658}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1579074410 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5851923399958662083, guid: 9a245685b627821419e635958313809b, type: 3}
   m_PrefabInstance: {fileID: 2047738658}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1629753315 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5549954068007607702, guid: e870591bbe258714e9c31d2ff82151a0, type: 3}
+  m_PrefabInstance: {fileID: 513093795}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1629753319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1629753315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 2800000, guid: 6d58ad7af588eff4487c251d3c1485f0, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!4 &1930871875 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8728996550862412196, guid: e870591bbe258714e9c31d2ff82151a0, type: 3}
+  m_PrefabInstance: {fileID: 513093795}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2047738658
 PrefabInstance:
@@ -625,6 +669,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1744849896794187719, guid: 9a245685b627821419e635958313809b, type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1744849896794187719, guid: 9a245685b627821419e635958313809b, type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 3126743928310690321, guid: 9a245685b627821419e635958313809b, type: 3}
@@ -667,6 +715,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5366823860110420699, guid: 9a245685b627821419e635958313809b, type: 3}
+      propertyPath: playerCam
+      value: 
+      objectReference: {fileID: 1930871875}
+    - target: {fileID: 5366823860110420699, guid: 9a245685b627821419e635958313809b, type: 3}
+      propertyPath: orientation
+      value: 
+      objectReference: {fileID: 1262906159}
+    - target: {fileID: 8184660568065930694, guid: 9a245685b627821419e635958313809b, type: 3}
+      propertyPath: characterData
+      value: 
+      objectReference: {fileID: 11400000, guid: e459e5f14251be74fb36e9edad4bd870, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
