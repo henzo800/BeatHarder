@@ -301,7 +301,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1c4c2ad4783e924b8279775a1caa871, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
 --- !u!1001 &112098259
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -587,7 +586,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1c4c2ad4783e924b8279775a1caa871, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
 --- !u!1 &290451892
 GameObject:
   m_ObjectHideFlags: 0
@@ -677,7 +675,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1c4c2ad4783e924b8279775a1caa871, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
 --- !u!135 &391694647
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -746,7 +743,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Sword: {fileID: 1352269897}
   CanAttack: 1
-  AttackCooldown: 1
+  AttackCooldown: 0.5
 --- !u!1001 &533453180
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1306,7 +1303,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1c4c2ad4783e924b8279775a1caa871, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
 --- !u!1001 &1212697914
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1388,7 +1384,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1c4c2ad4783e924b8279775a1caa871, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
 --- !u!1 &1352269897 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: a9e8b0c84ce4b2749aca0e63a676e439, type: 3}
