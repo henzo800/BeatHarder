@@ -12,10 +12,7 @@ public class PinAttackIndicatorController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.Find("Player");
-        Vector3 position = player.transform.position;
-        position.y = 0f;
-        transform.position = position;
+        
     }   
 
     
