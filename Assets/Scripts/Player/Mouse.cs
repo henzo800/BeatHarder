@@ -11,7 +11,9 @@ public class Mouse : MonoBehaviour
     public GameObject player;
     float xRotation;
     float yRotation;
-    public ParticleSystem muzzleFlash;
+    public ParticleSystem gunMuzzleFlash;
+    public Animator swordAnimator;
+    public Transform MeleePoint;
     void Start() {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -19,6 +21,12 @@ public class Mouse : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
+        if(Input.GetMouseButtonDown(0)){
+            Shoot();
+        }
+        if(Input.GetMouseButtonDown(1)){
+            Melee();
+        }
         // Get mouse input
         float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
         float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
@@ -36,21 +44,32 @@ public class Mouse : MonoBehaviour
     }
     void Shoot ()
     {
-        muzzleFlash.Play();
+        gunMuzzleFlash.Play();
 
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit))
         {
-            Debug.Log(hit.transform.name);
+            Debug.Log("Shot Hit: " + hit.transform.name);
 
-            IDamageable target = hit.transform.GetComponent<IDamageable>();
-            
-            if (target != null) 
+            IDamageable target;
+            if (hit.transform.TryGetComponent<IDamageable>(out target)) 
             {
                 target.TakeDamage(PlayerController.instance.characterData.DAMAGE);
-
             }
 
+        }
+    }
+    void Melee() {
+        swordAnimator.SetTrigger("IsUsed");
+        Collider[] hitColliders = Physics.OverlapBox(MeleePoint.position, new Vector3(1,2,1));
+        foreach(Collider collider in hitColliders){
+            Debug.Log("Melee Hit: " + collider.transform.name);
+
+            IDamageable target;
+            if (collider.transform.TryGetComponent<IDamageable>(out target)) 
+            {
+                target.TakeDamage(PlayerController.instance.characterData.DAMAGE * 2);
+            }
         }
     }
 }
