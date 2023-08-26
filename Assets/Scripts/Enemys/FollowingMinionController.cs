@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FollowingMinionController : MonoBehaviour
 {
+    public CharacterData characterData;
     // Start is called before the first frame update
     void Start()
     {
