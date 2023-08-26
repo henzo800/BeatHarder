@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44692594, g: 0.4968142, b: 0.5750188, a: 1}
+  m_IndirectSpecularColor: {r: 0.4487915, g: 0.49885106, b: 0.57569575, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -249,6 +249,76 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1001 &898493300
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 9cfdf5e3d034a464697f069da5d6a171, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9cfdf5e3d034a464697f069da5d6a171, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9cfdf5e3d034a464697f069da5d6a171, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9cfdf5e3d034a464697f069da5d6a171, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -19.47
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9cfdf5e3d034a464697f069da5d6a171, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9cfdf5e3d034a464697f069da5d6a171, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -11.6866255
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9cfdf5e3d034a464697f069da5d6a171, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9cfdf5e3d034a464697f069da5d6a171, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9cfdf5e3d034a464697f069da5d6a171, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9cfdf5e3d034a464697f069da5d6a171, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9cfdf5e3d034a464697f069da5d6a171, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9cfdf5e3d034a464697f069da5d6a171, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9cfdf5e3d034a464697f069da5d6a171, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9cfdf5e3d034a464697f069da5d6a171, type: 3}
+      propertyPath: m_Name
+      value: ruined metro arena
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: -8700617353114198275, guid: 9cfdf5e3d034a464697f069da5d6a171, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9cfdf5e3d034a464697f069da5d6a171, type: 3}
 --- !u!95 &1797049345
 Animator:
   serializedVersion: 5
@@ -566,7 +636,7 @@ Transform:
   m_GameObject: {fileID: 919132149293731181}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.410046, y: 0, z: -9.125696}
+  m_LocalPosition: {x: -19.6, y: 6.45, z: -9.125696}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2830,3 +2900,4 @@ SceneRoots:
   - {fileID: 2033651268}
   - {fileID: 684504099}
   - {fileID: 543450653569783767}
+  - {fileID: 898493300}
