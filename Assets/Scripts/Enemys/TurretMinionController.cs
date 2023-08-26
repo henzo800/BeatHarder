@@ -8,6 +8,8 @@ public class TurretMinionController : MonoBehaviour, IDamageable
     public Transform mount;
     public GameObject bullet;
     public float health;
+    public float ShotSpeedOverride;
+    public bool canShoot = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +20,21 @@ public class TurretMinionController : MonoBehaviour, IDamageable
     void Update()
     {
         mount.LookAt(Camera.main.transform.position);
+        if(ShotSpeedOverride > 0 && canShoot){
+            Fire(10,10);
+            StartCoroutine(ShotDelay());
+        }
+        if(canShoot){
+            Fire(10,100);
+        }
+    }
+
+    IEnumerator ShotDelay(){
+        canShoot = false;
+        
+        yield return new WaitForSeconds(ShotSpeedOverride);
+
+        canShoot = true;
     }
 
     void Fire(float bulletSpeed, float bulletLifetime) {
