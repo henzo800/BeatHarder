@@ -29,7 +29,7 @@ public class Gunscrip : MonoBehaviour
         muzzleFlash.Play();
 
         RaycastHit hit;
-        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit));
+        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit))
         {
             Debug.Log(hit.transform.name);
 
