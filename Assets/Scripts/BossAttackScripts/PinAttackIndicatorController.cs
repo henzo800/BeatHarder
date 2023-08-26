@@ -4,26 +4,34 @@ using UnityEngine;
 
 public class PinAttackIndicatorController : MonoBehaviour
 {
-    public float indicatorLength = 3f;
-    public bool isAnimated = true;
+    public float indicatorTime = 3f;
+    public float age = 0f;
+    public bool destroy = false;
+
+    GameObject player;
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("Despawn", indicatorLength);
-    }
+        player = GameObject.Find("Player");
+        Vector3 position = player.transform.position;
+        position.y = 0f;
+        transform.position = position;
+    }   
+
+    
 
     // Update is called once per frame
     void Update()
     {
-        if(isAnimated){
-            transform.Rotate(0f, 0.5f, 0f);
-            transform.position += new Vector3(0f, 0.5f * Time.deltaTime, 0f);
+        transform.Rotate(0f, 180f * Time.deltaTime, 0f);
+        if (age >= indicatorTime) {
+            destroy = true;
         }
-
-    }
-
-    void Despawn() {
-        isAnimated = false;
-        //Destroy(this.gameObject);
+        age += Time.deltaTime;
+        if (destroy == true) {
+            transform.position += new Vector3(0f, -10f, 0f);
+            gameObject.SetActive(false);
+            Destroy(gameObject);
+        }
     }
 }

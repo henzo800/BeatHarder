@@ -5,6 +5,8 @@ using UnityEngine;
 public class BossController : MonoBehaviour
 {
     // player object
+    private GameObject player;
+    Vector3 playerPosition;
 
     // beatmap object
 
@@ -13,7 +15,8 @@ public class BossController : MonoBehaviour
     public GameObject pinDamage; // damage object
     public GameObject sweepIndicator; // animation for sweep
     public GameObject sweepDamage; // damage object for sweep
-    public GameObject projectile;
+    public GameObject projectileIndicator; // indicator for projectile
+    public GameObject projectileDamage; // damage object for projectile
     public GameObject minionSpawner;
 
     // bpm
@@ -23,7 +26,7 @@ public class BossController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
@@ -38,14 +41,17 @@ public class BossController : MonoBehaviour
     void PinAttack() {
         // start indicator animation
         // Instantiate(pinIndicator, PlayerControl.transformInstance);
-        Instantiate(pinIndicator, new Vector3(0f, 0.1f, 0f), Quaternion.Euler(0f, 0f, 0f));
+        Instantiate(pinIndicator, playerPosition, Quaternion.Euler(0f, 0f, 0f));
+        
+        playerPosition = player.transform.position;
+        playerPosition.y = 0f;
 
         // do damage
-        Invoke("PinDamage", indicatorLength * 60f / bpm);
+        Invoke("PinDamage", 2.5f);
     }
 
     void PinDamage() {
-        
+        Instantiate(pinDamage, playerPosition, Quaternion.Euler(0f, 0f, 0f));
     }
 
     // Sweep
