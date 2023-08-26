@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8104216006653249939}
   - component: {fileID: 3688907904036679677}
   m_Layer: 0
-  m_Name: FollowingMinion 1
+  m_Name: FollowingMinion
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
