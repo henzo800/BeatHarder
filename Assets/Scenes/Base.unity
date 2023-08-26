@@ -965,8 +965,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5851923399958662083, guid: 9a245685b627821419e635958313809b, type: 3}
   m_PrefabInstance: {fileID: 1212697914}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< Updated upstream
-=======
   m_GameObject: {fileID: 1870923693}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -1020,7 +1018,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 10969864}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
->>>>>>> Stashed changes
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1030,9 +1027,4 @@ SceneRoots:
   - {fileID: 1046829604}
   - {fileID: 52119385}
   - {fileID: 228712042}
-<<<<<<< Updated upstream
-  - {fileID: 1212697914}
-  - {fileID: 112098259}
-=======
   - {fileID: 533453180}
->>>>>>> Stashed changes
