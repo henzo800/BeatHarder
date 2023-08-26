@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NAME: Swarm robot
   HEALTH: 10
-  SPEED: 1
+  SPEED: 3
   DAMAGE: 1

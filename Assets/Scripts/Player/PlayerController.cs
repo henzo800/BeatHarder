@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController instance;
     [Header("Movement")]
     public float speed;
 
@@ -36,7 +39,9 @@ public class PlayerController : MonoBehaviour
     Vector3 moveDirection;
 
     Rigidbody body;
-
+    void Awake() {
+        instance = this;
+    }
     // Start is called before the first frame update
     private void Start()
     {

@@ -21,14 +21,14 @@ public class FollowingMinionController : MonoBehaviour
     }
 
     void Start() {
-        navMeshAgent.SetDestination(new Vector3(0,0,0));
-        navMeshAgent.enabled = true;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-    if(navMeshAgent.velocity == new Vector3(0,0,0)){
+        navMeshAgent.SetDestination(PlayerController.instance.transform.position);
+        if(navMeshAgent.velocity == new Vector3(0,0,0)){
             animator.SetBool("IsWalking", false);
         }else{
             animator.SetBool("IsWalking", true);
