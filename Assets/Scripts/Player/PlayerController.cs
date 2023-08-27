@@ -51,7 +51,6 @@ public class PlayerController : MonoBehaviour, IDamageable
         body.freezeRotation = true;
         // Gets the starting time of the song
         timePassed = GameManager.instance.getAudioSource(); 
-        speed = characterData.SPEED;
     }
 
     
