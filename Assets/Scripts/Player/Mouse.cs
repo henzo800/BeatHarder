@@ -32,32 +32,32 @@ public class Mouse : MonoBehaviour
     void Update() {
         if(PlayerController.instance.isControllable){
             if(Input.GetMouseButtonDown(0)){
-                        if (IsInTime()) {
-                            if (PlayerController.instance.characterData.WEAPON == "Ranged") { // if ranged
-                                Shoot();
-                            } else if (PlayerController.instance.characterData.WEAPON == "Melee") { // if melee
-                                Melee();
-                            }
-                        } else {
-                            print("Not in time");
-                        }
+                if (IsInTime()) {
+                    if (PlayerController.instance.characterData.WEAPON == "Ranged") { // if ranged
+                        Shoot();
+                    } else if (PlayerController.instance.characterData.WEAPON == "Melee") { // if melee
+                        Melee();
                     }
+                }else {
+                    print("Not in time");
+                }
+            }
                     
-                    // Get mouse input
-                    float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
-                    float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
+            // Get mouse input
+            float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
+            float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
 
-                    yRotation += mouseX;
-                    xRotation -= mouseY;
+            yRotation += mouseX;
+            xRotation -= mouseY;
 
-                    xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+            xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-                    // Rotate cam and orientation
-                    transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
-                    player.transform.rotation = Quaternion.Euler(0, yRotation, 0);
+            // Rotate cam and orientation
+            transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
+            player.transform.rotation = Quaternion.Euler(0, yRotation, 0);
 
-                    transform.position = orientation.position;
-        
+            transform.position = orientation.position;
+        }
     }
     void Shoot ()
     {
@@ -105,7 +105,7 @@ public class Mouse : MonoBehaviour
         }
     }
 
-    private bool IsInTime() {
+    bool IsInTime() {
         float lastBeat = GameManager.instance.getAudioSource() * 1000 % GameManager.instance.beatLength;
         float nextBeat = GameManager.instance.beatLength - lastBeat;
 
