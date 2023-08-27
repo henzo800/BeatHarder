@@ -382,6 +382,7 @@ MonoBehaviour:
   swordAnimator: {fileID: 8750060877851018040}
   MeleePoint: {fileID: 766806639272385824}
   lightningBolt: {fileID: 6681496141808527345}
+  canAttack: 0
 --- !u!1 &5012835672778622823
 GameObject:
   m_ObjectHideFlags: 0
@@ -5656,7 +5657,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

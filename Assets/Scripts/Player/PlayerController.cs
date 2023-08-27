@@ -90,7 +90,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         Debug.Log(moveDirection);
         // on ground
         if (grounded) {
-            Debug.Log("MovePlayer()");
+            // Debug.Log("MovePlayer()");
             body.AddForce(moveDirection.normalized * speed * 10f, ForceMode.Force);
         }
         
