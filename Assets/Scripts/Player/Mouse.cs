@@ -57,7 +57,6 @@ public class Mouse : MonoBehaviour
                     player.transform.rotation = Quaternion.Euler(0, yRotation, 0);
 
                     transform.position = orientation.position;
-        }
         
     }
     void Shoot ()
