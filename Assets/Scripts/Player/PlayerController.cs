@@ -73,6 +73,11 @@ public class PlayerController : MonoBehaviour, IDamageable
         } else {
             body.drag = 0;
         }
+
+        if (characterData.HEALTH <= 0) {
+            // trigger death screen
+            print("You died!");
+        }
     }
     
 
