@@ -15,3 +15,4 @@ MonoBehaviour:
   SONG_NAME: Dream Box
   OSU_FILE: {fileID: 4900000, guid: f3e47a3a9425a1b4a95d1b989885d327, type: 3}
   AUDIO_TRACK: {fileID: 8300000, guid: 266ad76c88848b54f8d7bccc82d3e42e, type: 3}
+  BEAT_MULTIPLIER: 1
