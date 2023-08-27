@@ -263,22 +263,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1028845778350604855, guid: e870591bbe258714e9c31d2ff82151a0, type: 3}
-      propertyPath: m_AdditionalShaderChannelsFlag
-      value: 25
-      objectReference: {fileID: 0}
     - target: {fileID: 4045480087935803744, guid: e870591bbe258714e9c31d2ff82151a0, type: 3}
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
-    - target: {fileID: 7167113445050953984, guid: e870591bbe258714e9c31d2ff82151a0, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7582656041973294047, guid: e870591bbe258714e9c31d2ff82151a0, type: 3}
-      propertyPath: deathScreen
-      value: 
-      objectReference: {fileID: 1945948721}
     - target: {fileID: 8728996550862412196, guid: e870591bbe258714e9c31d2ff82151a0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.516441
@@ -324,17 +312,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1619572829}
     - target: {fileID: 8804123622322159940, guid: e870591bbe258714e9c31d2ff82151a0, type: 3}
-      propertyPath: muzzleFlash
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8804123622322159940, guid: e870591bbe258714e9c31d2ff82151a0, type: 3}
       propertyPath: orientation
       value: 
       objectReference: {fileID: 856646408}
-    - target: {fileID: 8804123622322159940, guid: e870591bbe258714e9c31d2ff82151a0, type: 3}
-      propertyPath: lightningBolt
-      value: 
-      objectReference: {fileID: 178460, guid: 2736bbc2f2c78a949957b0719c2992bd, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -735,11 +715,6 @@ MeshFilter:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1744849896794187719, guid: 9a245685b627821419e635958313809b, type: 3}
   m_PrefabInstance: {fileID: 805975399}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1945948721 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7167113445050953984, guid: e870591bbe258714e9c31d2ff82151a0, type: 3}
-  m_PrefabInstance: {fileID: 365836569}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5487601446314167330
 PrefabInstance:

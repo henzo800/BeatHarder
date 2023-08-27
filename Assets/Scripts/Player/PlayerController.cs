@@ -159,16 +159,11 @@ public class PlayerController : MonoBehaviour, IDamageable
 
         if (health <= 0) {
             // you died!
-            PlayerUIController.instance.deathScreen.SetActive(true);
-            isControllable = false;
-            StartCoroutine(deathWait());
+            PlayerUIController.instance.Death();
         }
     }
 
-    IEnumerator deathWait(){
-        yield return new WaitForSeconds(3);
-        SceneController.instance.LoadScene("MainMenu");
-    }
+
 
     public bool IsInTime() {
         float lastBeat = (GameManager.instance.getAudioSource() * 1000) % GameManager.instance.beatLength;
