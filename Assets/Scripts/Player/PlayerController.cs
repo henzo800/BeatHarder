@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     Vector3 moveDirection;
     Rigidbody body;
+    public bool isControllable = true;
     
     void Awake() {
         instance = this;
@@ -73,11 +74,6 @@ public class PlayerController : MonoBehaviour, IDamageable
         } else {
             body.drag = 0;
         }
-
-        if (characterData.HEALTH <= 0) {
-            // trigger death screen
-            print("You died!");
-        }
     }
     
 
@@ -107,11 +103,16 @@ public class PlayerController : MonoBehaviour, IDamageable
         }
     }
     private void MyInput() {
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-        verticalInput = Input.GetAxisRaw("Vertical");
+        if(isControllable) {
+            horizontalInput = Input.GetAxisRaw("Horizontal");
+            verticalInput = Input.GetAxisRaw("Vertical");
+        }else{
+            horizontalInput = 0;
+            verticalInput = 0;
+        }
 
         // Jump action
-        if (Input.GetKey(jumpKey) && readyToJump && grounded) {
+        if (Input.GetKey(jumpKey) && readyToJump && grounded && isControllable) {
             readyToJump = false;
 
             Jump();
@@ -158,8 +159,15 @@ public class PlayerController : MonoBehaviour, IDamageable
 
         if (health <= 0) {
             // you died!
-            Debug.Log("You Died");
+            PlayerUIController.instance.deathScreen.SetActive(true);
+            isControllable = false;
+            StartCoroutine(deathWait());
         }
+    }
+
+    IEnumerator deathWait(){
+        yield return new WaitForSeconds(3);
+        SceneController.instance.LoadScene("MainMenu");
     }
 
     public bool IsInTime() {
