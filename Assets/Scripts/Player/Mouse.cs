@@ -86,14 +86,14 @@ public class Mouse : MonoBehaviour
     void Melee() {
         swordAnimator.SetTrigger("downwardSlash");
         
-        Collider[] hitColliders = Physics.OverlapBox(MeleePoint.position, new Vector3(1,2,1));
+        Collider[] hitColliders = Physics.OverlapBox(MeleePoint.position, new Vector3(1,1,1));
         foreach(Collider collider in hitColliders){
             Debug.Log("Melee Hit: " + collider.transform.name);
 
             IDamageable target;
             if (collider.transform.TryGetComponent<IDamageable>(out target)) 
             {
-                target.TakeDamage(PlayerController.instance.characterData.DAMAGE * 2);
+                target.TakeDamage(PlayerController.instance.characterData.DAMAGE);
             }
         }
     }
