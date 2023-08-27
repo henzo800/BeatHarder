@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: bossTest
   m_EditorClassIdentifier: 
   NAME: bossTest
-  HEALTH: 500
+  HEALTH: 5000
   SPEED: 15
   DAMAGE: 15
   WEAPON: Melee
