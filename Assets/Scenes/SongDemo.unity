@@ -321,11 +321,7 @@ MonoBehaviour:
   timeSinceStart: 0
   audioSource: {fileID: 0}
   beatLength: 0
-<<<<<<< HEAD
-  arenaSize: 0
-=======
   arenaSize: 50
->>>>>>> 324e87040a88ee4b6f1034e355e2b2562df9861a
   pinIndicator: {fileID: 6617048880198171390, guid: 18b017b4f64fc1040a26e1d4bc67e3a7, type: 3}
   pinDamage: {fileID: 4511873209497853487, guid: cc0e58b13edcbfd4e82fdf8950fea2c8, type: 3}
   sweepParticle: {fileID: 1045755106378783264, guid: 5096e43ca9c904041acf2ffe43d62e1e, type: 3}
@@ -717,13 +713,33 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5366823860110420699, guid: 9a245685b627821419e635958313809b, type: 3}
+      propertyPath: dashCd
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5366823860110420699, guid: 9a245685b627821419e635958313809b, type: 3}
+      propertyPath: dashForce
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5366823860110420699, guid: 9a245685b627821419e635958313809b, type: 3}
       propertyPath: playerCam
       value: 
       objectReference: {fileID: 1930871875}
     - target: {fileID: 5366823860110420699, guid: 9a245685b627821419e635958313809b, type: 3}
+      propertyPath: dashCdTimer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5366823860110420699, guid: 9a245685b627821419e635958313809b, type: 3}
       propertyPath: orientation
       value: 
       objectReference: {fileID: 1262906159}
+    - target: {fileID: 5366823860110420699, guid: 9a245685b627821419e635958313809b, type: 3}
+      propertyPath: dashDuration
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8184660568065930694, guid: 9a245685b627821419e635958313809b, type: 3}
+      propertyPath: dashSpeed
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 8184660568065930694, guid: 9a245685b627821419e635958313809b, type: 3}
       propertyPath: characterData
       value: 

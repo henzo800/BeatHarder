@@ -36,8 +36,12 @@ public class Mouse : MonoBehaviour
                 print("Not in time");
             }
         }
-        if(Input.GetMouseButtonDown(1)){ // Right click
-            // add parry
+        if(Input.GetMouseButtonDown(1)){ // Right click parry
+            if (IsInTime()) {
+                // Parry!
+            } else {
+                print("Not in time");
+            }
         }
         // Get mouse input
         float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
