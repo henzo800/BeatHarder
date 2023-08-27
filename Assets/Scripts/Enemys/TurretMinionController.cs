@@ -38,7 +38,7 @@ public class TurretMinionController : MonoBehaviour, IDamageable
     }
 
     void Fire(float bulletSpeed, float bulletLifetime) {
-        GameObject currentBullet = Instantiate(bullet, mount.transform.position, mount.transform.rotation);
+        GameObject currentBullet = Instantiate(bullet, mount.transform.position + mount.transform.forward * 0.5f, mount.transform.rotation);
         currentBullet.GetComponent<BulletController>().speed = bulletSpeed;
         currentBullet.GetComponent<BulletController>().lifetime = bulletLifetime;
 

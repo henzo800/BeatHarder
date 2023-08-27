@@ -67,11 +67,13 @@ public class Dashing : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(dashKey)) {
-            Dash();
+            if (PlayerController.instance.IsInTime()) {
+                Dash();
+            }
         }
 
-        if (dashCdTimer > 0) {
-            dashCdTimer -= Time.deltaTime;
-        }
+        // if (dashCdTimer > 0) {
+        //     dashCdTimer -= Time.deltaTime;
+        // }
     }
 }

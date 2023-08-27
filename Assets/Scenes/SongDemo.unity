@@ -582,7 +582,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: d0ef82943f5557a44b84c239223dac27, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -713,13 +713,33 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5366823860110420699, guid: 9a245685b627821419e635958313809b, type: 3}
+      propertyPath: dashCd
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5366823860110420699, guid: 9a245685b627821419e635958313809b, type: 3}
+      propertyPath: dashForce
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5366823860110420699, guid: 9a245685b627821419e635958313809b, type: 3}
       propertyPath: playerCam
       value: 
       objectReference: {fileID: 1930871875}
     - target: {fileID: 5366823860110420699, guid: 9a245685b627821419e635958313809b, type: 3}
+      propertyPath: dashCdTimer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5366823860110420699, guid: 9a245685b627821419e635958313809b, type: 3}
       propertyPath: orientation
       value: 
       objectReference: {fileID: 1262906159}
+    - target: {fileID: 5366823860110420699, guid: 9a245685b627821419e635958313809b, type: 3}
+      propertyPath: dashDuration
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8184660568065930694, guid: 9a245685b627821419e635958313809b, type: 3}
+      propertyPath: dashSpeed
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 8184660568065930694, guid: 9a245685b627821419e635958313809b, type: 3}
       propertyPath: characterData
       value: 

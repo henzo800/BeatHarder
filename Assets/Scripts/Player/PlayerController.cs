@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour, IDamageable
     }
 
     public float dashSpeed;
+
+    public float health;
     public bool dashing;
 
     [Header("Keybinds")]
@@ -36,6 +38,7 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     float horizontalInput;
     float verticalInput;
+    float timePassed = 0f;
 
     Vector3 moveDirection;
     Rigidbody body;
@@ -48,6 +51,10 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         body = GetComponent<Rigidbody>();
         body.freezeRotation = true;
+        // Gets the starting time of the song
+        timePassed = GameManager.instance.getAudioSource();
+        health = characterData.HEALTH;
+        speed = characterData.SPEED;
     }
 
     
@@ -55,6 +62,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     // Update is called once per frame
     private void Update()
     {
+        timePassed += Time.deltaTime;
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, ground);
         MyInput();
         SpeedControl();
@@ -141,6 +149,21 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     public void TakeDamage(float damage)
     {
-        characterData.HEALTH -= damage;
+        health -= damage;
+
+        if (health <= 0) {
+            // you died!
+            Debug.Log("You Died");
+        }
+    }
+
+    public bool IsInTime() {
+        float lastBeat = (GameManager.instance.getAudioSource() * 1000) % GameManager.instance.beatLength;
+        float nextBeat = GameManager.instance.beatLength - lastBeat;
+
+        if (lastBeat <= 100f || nextBeat <= 100f) {
+            return true;
+        }
+        return false;
     }
 }
