@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -263,6 +263,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2455295029568509672, guid: e870591bbe258714e9c31d2ff82151a0, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4045480087935803744, guid: e870591bbe258714e9c31d2ff82151a0, type: 3}
       propertyPath: m_Name
       value: Main Camera
@@ -315,6 +319,10 @@ PrefabInstance:
       propertyPath: orientation
       value: 
       objectReference: {fileID: 856646408}
+    - target: {fileID: 8804123622322159940, guid: e870591bbe258714e9c31d2ff82151a0, type: 3}
+      propertyPath: lightningBolt
+      value: 
+      objectReference: {fileID: 639395884}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -391,6 +399,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51baa91c67773c64d91b45281b75c0c4, type: 3}
+--- !u!1 &639395884 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6681496141808527345, guid: e870591bbe258714e9c31d2ff82151a0, type: 3}
+  m_PrefabInstance: {fileID: 365836569}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &805975399
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -494,6 +507,7 @@ MonoBehaviour:
   pinDamage: {fileID: 4511873209497853487, guid: cc0e58b13edcbfd4e82fdf8950fea2c8, type: 3}
   sweepParticle: {fileID: 1045755106378783264, guid: 5096e43ca9c904041acf2ffe43d62e1e, type: 3}
   numParticles: 24
+  sweepAttackSound: {fileID: 0}
 --- !u!4 &957469006
 Transform:
   m_ObjectHideFlags: 0

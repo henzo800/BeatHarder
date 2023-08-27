@@ -6,6 +6,8 @@ public class Mouse : MonoBehaviour
 {
     public float sensX;
     public float sensY;
+    public float timingWindow = 100f;
+    public float timingOffset = 50f;
     public Transform orientation;
 
     public GameObject player;
@@ -20,6 +22,7 @@ public class Mouse : MonoBehaviour
 
     public AudioClip cutSound;
     public AudioClip shootSound;
+    public AudioClip correctSound;
     private AudioSource source;
 
     void Start() {
@@ -32,6 +35,9 @@ public class Mouse : MonoBehaviour
     void Update() {
         if(Input.GetMouseButtonDown(0)){
             if (IsInTime()) {
+                source.pitch = UnityEngine.Random.Range(0.75f, 1.25f);
+                source.PlayOneShot(correctSound, 1f);
+                source.pitch = 1f;
                 if (PlayerController.instance.characterData.WEAPON == "Ranged") { // if ranged
                     Shoot();
                 } else if (PlayerController.instance.characterData.WEAPON == "Melee") { // if melee
@@ -104,10 +110,10 @@ public class Mouse : MonoBehaviour
     }
 
     private bool IsInTime() {
-        float lastBeat = GameManager.instance.getAudioSource() * 1000 % GameManager.instance.beatLength;
+        float lastBeat = (GameManager.instance.getAudioSource() + timingOffset) * 1000 % GameManager.instance.beatLength;
         float nextBeat = GameManager.instance.beatLength - lastBeat;
 
-        return lastBeat <= 150f || nextBeat <= 150f;
+        return lastBeat <= timingWindow / 2f || nextBeat <= timingWindow / 2f;
     }
 
 }

@@ -39,11 +39,8 @@ public class PlayerController : MonoBehaviour, IDamageable
     float horizontalInput;
     float verticalInput;
     float timePassed = 0f;
-
-    public AudioClip correctSound;
     public AudioClip damageSound;
-
-    public AudioSource source;
+    private AudioSource source;
 
     Vector3 moveDirection;
     Rigidbody body;
@@ -92,7 +89,6 @@ public class PlayerController : MonoBehaviour, IDamageable
         if (dashing) {
             state = MovementState.dashing;
             speed = dashSpeed;
-
         }
     }
     private void MovePlayer() {
@@ -180,9 +176,6 @@ public class PlayerController : MonoBehaviour, IDamageable
         float nextBeat = GameManager.instance.beatLength - lastBeat;
 
         if (lastBeat <= 100f || nextBeat <= 100f) {
-            source.pitch = UnityEngine.Random.Range(0.75f, 1.25f);
-            source.PlayOneShot(correctSound, 1f);
-            source.pitch = 1f;
             return true;
         }
         return false;
