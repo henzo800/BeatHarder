@@ -46,6 +46,7 @@ public class BossController : MonoBehaviour, IDamageable
     {
         health -= damage;
         if (health <= 0) {
+            PlayerUIController.instance.Win();
             Destroy(gameObject);
         }
     }

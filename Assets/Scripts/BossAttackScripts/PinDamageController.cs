@@ -23,7 +23,7 @@ public class PinDamageController : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void OnTriggerEnter(Collider other) {
+    void OnTriggerStay(Collider other) {
         if (other.gameObject.tag == "Player") {
             other.GetComponent<IDamageable>().TakeDamage(damage);
         }

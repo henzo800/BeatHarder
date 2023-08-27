@@ -16,8 +16,8 @@ public class SceneController : MonoBehaviour
     void Start()
     {
         LoadScreenPanel.SetActive(false);
-        //Transition to Main Menu
-        LoadScene("MainMenu");
+        //Transition to IntroCutscene
+        LoadScene("IntroCutScene");
     }
 
     // Update is called once per frame

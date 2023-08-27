@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class CutSceneManager : MonoBehaviour
 {
@@ -9,23 +11,27 @@ public class CutSceneManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        int i = 0;
-        foreach (GameObject scene in scenes) {
-            scene.SetActive(i == currentScene ? true : false);
-            i++;
+
+    }
+    void DisableAllScenes() {
+        foreach(GameObject scene in scenes){
+            scene.SetActive(false);
         }
     }
 
     // Update is called once per frame
     void Update()
     {
+
         if (Input.GetKeyDown(KeyCode.Space)) {
-            scenes[currentScene].SetActive(false);
+            DisableAllScenes();
             currentScene++;
+            if (currentScene >= 4) {
+                SceneController.instance.LoadScene("MainMenu");
+                return;
+            }
             scenes[currentScene].SetActive(true);
         }
-        if (currentScene >= 4) {
-            // go to main menu
-        }
+        
     }
 }
