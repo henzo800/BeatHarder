@@ -498,7 +498,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentSongData: {fileID: 11400000, guid: 543320606012d094c8d210834b955da3, type: 2}
   spawnArea: {fileID: 0}
-  Minions: []
+  Minions:
+  - {fileID: 6359320142938700996, guid: 71ebc85d0e31e9c44adf104502609da8, type: 3}
+  - {fileID: 8031338045218730014, guid: 427d9fff77a1ae64ebac4a53ba0c9d9b, type: 3}
   timeSinceStart: 0
   audioSource: {fileID: 0}
   beatLength: 0
@@ -631,6 +633,7 @@ GameObject:
   - component: {fileID: 1536813771}
   - component: {fileID: 1536813770}
   - component: {fileID: 1536813769}
+  - component: {fileID: 1536813772}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -725,6 +728,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1536813767}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1536813772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1536813767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: 60bcc39dd42f94a47aa773326b568edf, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!1 &1619572829 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1744849896794187719, guid: 9a245685b627821419e635958313809b, type: 3}

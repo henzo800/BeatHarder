@@ -44,6 +44,8 @@ public class PlayerUIController : MonoBehaviour
     public void Death() {
         deathScreen.SetActive(true);
         PlayerController.instance.isControllable = false;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         StartCoroutine(deathWait());
     }
     IEnumerator deathWait(){
@@ -53,6 +55,8 @@ public class PlayerUIController : MonoBehaviour
     public void Win() {
         winScreen.SetActive(true);
         PlayerController.instance.isControllable = false;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         StartCoroutine(winWait());
     }
     IEnumerator winWait(){
