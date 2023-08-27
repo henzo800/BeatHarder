@@ -8,13 +8,16 @@ public class PinAttackIndicatorController : MonoBehaviour
     public float age = 0f;
     public bool destroy = false;
 
+    // public AudioClip sound;
+    // public AudioSource source;
+
     GameObject player;
     // Start is called before the first frame update
     void Start()
     {
-        
+        // source = GetComponent<AudioSource>();
+        // source.PlayOneShot(sound, 1f);
     }   
-
     
 
     // Update is called once per frame

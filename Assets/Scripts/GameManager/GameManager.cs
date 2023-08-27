@@ -24,6 +24,9 @@ public class GameManager : MonoBehaviour
     public GameObject sweepParticle; // particle for sweep
     public int numParticles = 24;
 
+    // sound effects
+    public AudioClip sweepAttackSound;
+
     public float getAudioSource() {
         return this.audioSource.time;
     }
@@ -85,6 +88,8 @@ public class GameManager : MonoBehaviour
 
     // Sweep
     void SweepAttack() {
+        audioSource.PlayOneShot(sweepAttackSound, 1f);
+
         Transform BossTransform = BossController.instance.transform;
         Vector3 position = BossTransform.position + new Vector3(0f, 0.5f, 0f);
         BossController.instance.transform.rotation = Quaternion.Euler(0,90f,0f);

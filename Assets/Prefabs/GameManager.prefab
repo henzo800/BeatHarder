@@ -56,6 +56,7 @@ MonoBehaviour:
   pinDamage: {fileID: 4511873209497853487, guid: cc0e58b13edcbfd4e82fdf8950fea2c8, type: 3}
   sweepParticle: {fileID: 1045755106378783264, guid: 5096e43ca9c904041acf2ffe43d62e1e, type: 3}
   numParticles: 16
+  sweepAttackSound: {fileID: 8300000, guid: 373cfb5de40ad3d4a940bca60f623cf8, type: 3}
 --- !u!82 &1218742584624546001
 AudioSource:
   m_ObjectHideFlags: 0
@@ -68,7 +69,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.505
   m_Pitch: 1
   Loop: 0
   Mute: 0

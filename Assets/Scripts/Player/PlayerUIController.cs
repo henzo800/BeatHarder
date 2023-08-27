@@ -12,6 +12,7 @@ public class PlayerUIController : MonoBehaviour
 
     public Image health;
     public GameObject deathScreen;
+    public GameObject winScreen;
     Canvas canvas;
     // Start is called before the first frame update
     void Start()
@@ -39,5 +40,23 @@ public class PlayerUIController : MonoBehaviour
         // Set health bar
         float bossHealthPercent = BossController.instance.getHealth() / BossController.instance.characterData.HEALTH;
         health.fillAmount = bossHealthPercent;
+    }
+    public void Death() {
+        deathScreen.SetActive(true);
+        PlayerController.instance.isControllable = false;
+        StartCoroutine(deathWait());
+    }
+    IEnumerator deathWait(){
+        yield return new WaitForSeconds(3);
+        SceneController.instance.LoadScene("MainMenu");
+    }
+    public void Win() {
+        winScreen.SetActive(true);
+        PlayerController.instance.isControllable = false;
+        StartCoroutine(winWait());
+    }
+    IEnumerator winWait(){
+        yield return new WaitForSeconds(3);
+        SceneController.instance.LoadScene("MainMenu");
     }
 }
