@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         body.freezeRotation = true;
         // Gets the starting time of the song
         timePassed = GameManager.instance.getAudioSource(); 
-        speed = characterData.SPEED;
+        // speed = characterData.SPEED;
     }
 
     
@@ -88,8 +88,10 @@ public class PlayerController : MonoBehaviour, IDamageable
         // Calculate movement direction
         moveDirection = transform.forward * verticalInput + transform.right * horizontalInput;
 
+        Debug.Log(moveDirection);
         // on ground
         if (grounded) {
+            Debug.Log("MovePlayer()");
             body.AddForce(moveDirection.normalized * speed * 10f, ForceMode.Force);
         }
         
@@ -99,6 +101,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         }
     }
     private void MyInput() {
+        // Debug.Log("MyInput()");
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
