@@ -483,7 +483,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c54f0d84fb8052e4399e32f234ae701a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentSongData: {fileID: 11400000, guid: 783972c87b17a494b8302944d5016ffa, type: 2}
+  currentSongData: {fileID: 11400000, guid: 543320606012d094c8d210834b955da3, type: 2}
   spawnArea: {fileID: 0}
   Minions: []
   timeSinceStart: 0

@@ -24,6 +24,9 @@ public class GameManager : MonoBehaviour
     public GameObject sweepParticle; // particle for sweep
     public int numParticles = 24;
 
+    // sound effects
+    public AudioClip sweepAttackSound;
+
     public float getAudioSource() {
         return this.audioSource.time;
     }
@@ -39,7 +42,6 @@ public class GameManager : MonoBehaviour
         currentSong = OsuSongParse(OsuRaw);
         audioSource.clip = currentSongData.AUDIO_TRACK;
         audioSource.Play();
-
         beatLength = (float)currentSong.timingPoints[0].beatLength;
     }
     
@@ -85,6 +87,8 @@ public class GameManager : MonoBehaviour
 
     // Sweep
     void SweepAttack() {
+        audioSource.PlayOneShot(sweepAttackSound, 1f);
+
         Transform BossTransform = BossController.instance.transform;
         Vector3 position = BossTransform.position + new Vector3(0f, 0.5f, 0f);
         BossController.instance.transform.rotation = Quaternion.Euler(0,90f,0f);
@@ -102,7 +106,8 @@ public class GameManager : MonoBehaviour
         int endScanPlace = Regex.Match(rawOsuString.Substring(startScanPlace), @"(?<=\r?\n)[ \t]*(\r?\n|$)").Index - 1;
         Debug.Log(rawOsuString.Substring(startScanPlace, endScanPlace));
         string[] TimingPointsRaw = rawOsuString.Substring(startScanPlace, endScanPlace).Split("\n");
-        for(int i = 1; i < TimingPointsRaw.Length - 1; i++){
+        for(int i = 1; i < TimingPointsRaw.Length; i++){
+            Debug.Log(TimingPointsRaw[i]);
             string[] values = TimingPointsRaw[i].Split(",");
             Song.TimingPoint timingPoint = new()
             {
@@ -122,7 +127,7 @@ public class GameManager : MonoBehaviour
         endScanPlace = Regex.Match(rawOsuString.Substring(startScanPlace), @"(?<=\r?\n)[ \t]*(\r?\n|$)").Index;
         Debug.Log(rawOsuString.Substring(startScanPlace, endScanPlace));
         string[] HitObjectsRaw = rawOsuString.Substring(startScanPlace, endScanPlace).Split("\n");
-        for(int i = 1; i < HitObjectsRaw.Length - 1; i++){
+        for(int i = 1; i < HitObjectsRaw.Length -1 ; i++){
             string[] values = HitObjectsRaw[i].Split(",");
             Song.HitObject hitObject = new()
             {

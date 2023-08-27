@@ -40,6 +40,11 @@ public class PlayerController : MonoBehaviour, IDamageable
     float verticalInput;
     float timePassed = 0f;
 
+    public AudioClip correctSound;
+    public AudioClip damageSound;
+
+    public AudioSource source;
+
     Vector3 moveDirection;
     Rigidbody body;
     public bool isControllable = true;
@@ -56,6 +61,8 @@ public class PlayerController : MonoBehaviour, IDamageable
         timePassed = GameManager.instance.getAudioSource();
         health = characterData.HEALTH;
         speed = characterData.SPEED;
+        
+        source = GetComponent<AudioSource>();
     }
 
     
@@ -156,6 +163,9 @@ public class PlayerController : MonoBehaviour, IDamageable
     public void TakeDamage(float damage)
     {
         health -= damage;
+        source.pitch = UnityEngine.Random.Range(0.75f, 1.25f);
+        source.PlayOneShot(damageSound, 1f);
+        source.pitch = 1f;
 
         if (health <= 0) {
             // you died!
@@ -170,6 +180,9 @@ public class PlayerController : MonoBehaviour, IDamageable
         float nextBeat = GameManager.instance.beatLength - lastBeat;
 
         if (lastBeat <= 100f || nextBeat <= 100f) {
+            source.pitch = UnityEngine.Random.Range(0.75f, 1.25f);
+            source.PlayOneShot(correctSound, 1f);
+            source.pitch = 1f;
             return true;
         }
         return false;
