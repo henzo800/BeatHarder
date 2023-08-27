@@ -17,7 +17,12 @@ public class BossController : MonoBehaviour, IDamageable
     public float bpm;
     public float indicatorLength; // length, in beats of indication before the damage frame
 
+    public float health;
     public static BossController instance;
+
+    public float getHealth() {
+        return health;
+    }
 
     void Awake() {
         instance = this;
@@ -27,6 +32,7 @@ public class BossController : MonoBehaviour, IDamageable
     void Start()
     {
         player = GameObject.Find("Player");
+        health = characterData.HEALTH;
 
     }
 
@@ -38,8 +44,8 @@ public class BossController : MonoBehaviour, IDamageable
 
     public void TakeDamage(float damage)
     {
-        characterData.HEALTH -= damage;
-        if (characterData.HEALTH <= 0) {
+        health -= damage;
+        if (health <= 0) {
             Destroy(gameObject);
         }
     }

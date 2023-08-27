@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerUIController : MonoBehaviour
 {
     public GameObject TopIncoming;
     public GameObject DownIncoming;
+
+    public Image health;
     Canvas canvas;
     // Start is called before the first frame update
     void Start()
@@ -28,5 +31,9 @@ public class PlayerUIController : MonoBehaviour
             TopIncoming.SetActive(false);
             DownIncoming.SetActive(false);
         }
+
+        // Set health bar
+        float bossHealthPercent = BossController.instance.getHealth() / BossController.instance.characterData.HEALTH;
+        health.fillAmount = bossHealthPercent;
     }
 }
