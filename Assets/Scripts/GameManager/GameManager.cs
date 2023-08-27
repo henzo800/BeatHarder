@@ -24,6 +24,10 @@ public class GameManager : MonoBehaviour
     public GameObject sweepParticle; // particle for sweep
     public int numParticles = 24;
 
+    // sound effects
+    public AudioClip pinIndicatorSound;
+    public AudioClip sweepAttackSound;
+
     public float getAudioSource() {
         return this.audioSource.time;
     }
@@ -69,6 +73,8 @@ public class GameManager : MonoBehaviour
     }
 
     void PinAttack(Vector3 position, float indicatorLength) {
+        audioSource.speed = 
+        audioSource.PlayOneShot(pinIndicatorSound, 1f);
         // start indicator animation
         Instantiate(pinIndicator, position + new Vector3(0f, 0.01f, 0f), Quaternion.Euler(0f, 0f, 0f));
         //Debug.Log("Pin spawned at " + position.x + ", " + position.z);
@@ -85,6 +91,8 @@ public class GameManager : MonoBehaviour
 
     // Sweep
     void SweepAttack() {
+        audioSource.PlayOneShot(sweepAttackSound, 1f);
+
         Transform BossTransform = BossController.instance.transform;
         Vector3 position = BossTransform.position + new Vector3(0f, 0.5f, 0f);
         BossController.instance.transform.rotation = Quaternion.Euler(0,90f,0f);

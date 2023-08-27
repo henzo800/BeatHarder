@@ -18,9 +18,14 @@ public class Mouse : MonoBehaviour
 
     public bool canAttack = false;
 
+    public AudioClip cutSound;
+    public AudioClip shootSound;
+    private AudioSource source;
+
     void Start() {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        source = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -57,6 +62,8 @@ public class Mouse : MonoBehaviour
         gunMuzzleFlash.Play();
 
         lightningBolt.SetActive(true);
+        source.pitch = Random.Range(0.5f, 1.5f);
+        source.PlayOneShot(shootSound, 1f);
         StartCoroutine(DeactivateLightning());
 
         RaycastHit hit;
@@ -79,6 +86,9 @@ public class Mouse : MonoBehaviour
     }
     void Melee() {
         swordAnimator.SetTrigger("downwardSlash");
+
+        source.pitch = Random.Range(0.5f, 1.5f);
+        source.PlayOneShot(cutSound, 1f);
         
         Collider[] hitColliders = Physics.OverlapBox(MeleePoint.position, new Vector3(1,1,1));
         foreach(Collider collider in hitColliders){
@@ -87,6 +97,7 @@ public class Mouse : MonoBehaviour
             IDamageable target;
             if (collider.transform.TryGetComponent<IDamageable>(out target)) 
             {
+
                 target.TakeDamage(PlayerController.instance.characterData.DAMAGE);
             }
         }
