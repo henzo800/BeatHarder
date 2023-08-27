@@ -20,37 +20,40 @@ public class Mouse : MonoBehaviour
 
     void Start() {
         Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        Cursor.visible = true;
     }
 
     // Update is called once per frame
     void Update() {
-        if(Input.GetMouseButtonDown(0)){
-            if (IsInTime()) {
-                if (PlayerController.instance.characterData.WEAPON == "Ranged") { // if ranged
-                    Shoot();
-                } else if (PlayerController.instance.characterData.WEAPON == "Melee") { // if melee
-                    Melee();
-                }
-            } else {
-                print("Not in time");
-            }
+        if(PlayerController.instance.isControllable){
+            if(Input.GetMouseButtonDown(0)){
+                        if (IsInTime()) {
+                            if (PlayerController.instance.characterData.WEAPON == "Ranged") { // if ranged
+                                Shoot();
+                            } else if (PlayerController.instance.characterData.WEAPON == "Melee") { // if melee
+                                Melee();
+                            }
+                        } else {
+                            print("Not in time");
+                        }
+                    }
+                    
+                    // Get mouse input
+                    float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
+                    float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
+
+                    yRotation += mouseX;
+                    xRotation -= mouseY;
+
+                    xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+
+                    // Rotate cam and orientation
+                    transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
+                    player.transform.rotation = Quaternion.Euler(0, yRotation, 0);
+
+                    transform.position = orientation.position;
         }
         
-        // Get mouse input
-        float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
-        float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
-
-        yRotation += mouseX;
-        xRotation -= mouseY;
-
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
-
-        // Rotate cam and orientation
-        transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
-        player.transform.rotation = Quaternion.Euler(0, yRotation, 0);
-
-        transform.position = orientation.position;
     }
     void Shoot ()
     {
