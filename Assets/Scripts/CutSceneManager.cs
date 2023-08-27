@@ -22,13 +22,16 @@ public class CutSceneManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (Input.GetKeyDown(KeyCode.Space)) {
             DisableAllScenes();
             currentScene++;
+            if (currentScene >= 4) {
+                SceneController.instance.LoadScene("MainMenu");
+                return;
+            }
             scenes[currentScene].SetActive(true);
         }
-        if (currentScene >= 4) {
-            SceneController.instance.LoadScene("MainMenu");
-        }
+        
     }
 }
