@@ -42,7 +42,6 @@ public class GameManager : MonoBehaviour
         currentSong = OsuSongParse(OsuRaw);
         audioSource.clip = currentSongData.AUDIO_TRACK;
         audioSource.Play();
-
         beatLength = (float)currentSong.timingPoints[0].beatLength;
     }
     
@@ -107,7 +106,8 @@ public class GameManager : MonoBehaviour
         int endScanPlace = Regex.Match(rawOsuString.Substring(startScanPlace), @"(?<=\r?\n)[ \t]*(\r?\n|$)").Index - 1;
         Debug.Log(rawOsuString.Substring(startScanPlace, endScanPlace));
         string[] TimingPointsRaw = rawOsuString.Substring(startScanPlace, endScanPlace).Split("\n");
-        for(int i = 1; i < TimingPointsRaw.Length - 1; i++){
+        for(int i = 1; i < TimingPointsRaw.Length; i++){
+            Debug.Log(TimingPointsRaw[i]);
             string[] values = TimingPointsRaw[i].Split(",");
             Song.TimingPoint timingPoint = new()
             {
@@ -127,7 +127,7 @@ public class GameManager : MonoBehaviour
         endScanPlace = Regex.Match(rawOsuString.Substring(startScanPlace), @"(?<=\r?\n)[ \t]*(\r?\n|$)").Index;
         Debug.Log(rawOsuString.Substring(startScanPlace, endScanPlace));
         string[] HitObjectsRaw = rawOsuString.Substring(startScanPlace, endScanPlace).Split("\n");
-        for(int i = 1; i < HitObjectsRaw.Length - 1; i++){
+        for(int i = 1; i < HitObjectsRaw.Length -1 ; i++){
             string[] values = HitObjectsRaw[i].Split(",");
             Song.HitObject hitObject = new()
             {
