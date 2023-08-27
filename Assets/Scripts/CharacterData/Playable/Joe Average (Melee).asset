@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Joe Average (Melee)
   m_EditorClassIdentifier: 
   NAME: Joe Average
-  HEALTH: 12
+  HEALTH: -1767
   SPEED: 3
   DAMAGE: 10
-  WEAPON: Ranged
+  WEAPON: Melee
