@@ -68,7 +68,10 @@ public class Dashing : MonoBehaviour
     {
         if (Input.GetKeyDown(dashKey)) {
             if (PlayerController.instance.IsInTime()) {
+                Debug.Log("Dash");
                 Dash();
+            } else {
+                Debug.Log("Failed Dash");
             }
         }
 

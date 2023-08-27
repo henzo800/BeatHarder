@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1272726387359332236}
   - component: {fileID: 7898313214386028310}
   - component: {fileID: 2322326753775460796}
-  - component: {fileID: 6137962667835375930}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -28,8 +27,8 @@ Transform:
   m_GameObject: {fileID: 6392998066489947453}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 5, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalPosition: {x: 0, y: 8.62, z: 0}
+  m_LocalScale: {x: 7, y: 10, z: 4.47}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6669826831795172165}
@@ -49,7 +48,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6392998066489947453}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -84,29 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &6137962667835375930
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6392998066489947453}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6921703493981482449
 GameObject:
   m_ObjectHideFlags: 0
@@ -117,6 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6669826831795172165}
   - component: {fileID: 5796940081553489537}
+  - component: {fileID: 2062839539193975211}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -138,6 +115,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1272726387359332236}
+  - {fileID: 7922812823765067840}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5796940081553489537
@@ -152,12 +130,94 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05bb818869501974389f97c1179aa6fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pinIndicator: {fileID: 6617048880198171390, guid: 18b017b4f64fc1040a26e1d4bc67e3a7, type: 3}
-  pinDamage: {fileID: 4511873209497853487, guid: cc0e58b13edcbfd4e82fdf8950fea2c8, type: 3}
-  sweepParticle: {fileID: 1045755106378783264, guid: 5096e43ca9c904041acf2ffe43d62e1e, type: 3}
-  numParticles: 24
-  projectileIndicator: {fileID: 0}
-  projectileDamage: {fileID: 0}
-  minionSpawner: {fileID: 0}
+  characterData: {fileID: 11400000, guid: f66eeb72a60938441839b75b0ebc0cbe, type: 2}
   bpm: 0
   indicatorLength: 0
+  health: 0
+--- !u!136 &2062839539193975211
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6921703493981482449}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 4.96
+  m_Height: 21.760056
+  m_Direction: 1
+  m_Center: {x: 0, y: 8.493586, z: 0}
+--- !u!1001 &7672380268150280107
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6669826831795172165}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 6701ac8c18d57ad47bce85c198f1ba55, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6701ac8c18d57ad47bce85c198f1ba55, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6701ac8c18d57ad47bce85c198f1ba55, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6701ac8c18d57ad47bce85c198f1ba55, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6701ac8c18d57ad47bce85c198f1ba55, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6701ac8c18d57ad47bce85c198f1ba55, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6701ac8c18d57ad47bce85c198f1ba55, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6701ac8c18d57ad47bce85c198f1ba55, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6701ac8c18d57ad47bce85c198f1ba55, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6701ac8c18d57ad47bce85c198f1ba55, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6701ac8c18d57ad47bce85c198f1ba55, type: 3}
+      propertyPath: m_Name
+      value: beatoven@Robot Hip Hop Dance
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: -8700617353114198275, guid: 6701ac8c18d57ad47bce85c198f1ba55, type: 3}
+    - {fileID: 65702495048144492, guid: 6701ac8c18d57ad47bce85c198f1ba55, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6701ac8c18d57ad47bce85c198f1ba55, type: 3}
+--- !u!4 &7922812823765067840 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6701ac8c18d57ad47bce85c198f1ba55, type: 3}
+  m_PrefabInstance: {fileID: 7672380268150280107}
+  m_PrefabAsset: {fileID: 0}
